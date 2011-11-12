@@ -10,16 +10,10 @@ privileged aspect HouseType_Roo_ToString {
     public String HouseType.toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Comment: ").append(getComment()).append(", ");
-        sb.append("Created: ").append(getCreated()).append(", ");
-        sb.append("CreatedBy: ").append(getCreatedBy()).append(", ");
-        sb.append("Deleted: ").append(getDeleted()).append(", ");
-        sb.append("DeletedBy: ").append(getDeletedBy()).append(", ");
         sb.append("HouseTypeId: ").append(getHouseTypeId()).append(", ");
         sb.append("Houses: ").append(getHouses() == null ? "null" : getHouses().size()).append(", ");
-        sb.append("Id: ").append(getId()).append(", ");
+        sb.append("Id_: ").append(getId_()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
-        sb.append("Updated: ").append(getUpdated()).append(", ");
-        sb.append("UpdatedBy: ").append(getUpdatedBy()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();
     }

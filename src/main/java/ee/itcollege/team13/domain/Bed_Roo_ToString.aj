@@ -11,16 +11,10 @@ privileged aspect Bed_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("BorderGuardsInBed: ").append(getBorderGuardsInBed() == null ? "null" : getBorderGuardsInBed().size()).append(", ");
         sb.append("Comment: ").append(getComment()).append(", ");
-        sb.append("Created: ").append(getCreated()).append(", ");
-        sb.append("CreatedBy: ").append(getCreatedBy()).append(", ");
-        sb.append("Deleted: ").append(getDeleted()).append(", ");
-        sb.append("DeletedBy: ").append(getDeletedBy()).append(", ");
         sb.append("House: ").append(getHouse()).append(", ");
-        sb.append("Id: ").append(getId()).append(", ");
+        sb.append("Id_: ").append(getId_()).append(", ");
         sb.append("Length: ").append(getLength()).append(", ");
         sb.append("SpaceId: ").append(getSpaceId()).append(", ");
-        sb.append("Updated: ").append(getUpdated()).append(", ");
-        sb.append("UpdatedBy: ").append(getUpdatedBy()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");
         sb.append("Width: ").append(getWidth());
         return sb.toString();

@@ -6,11 +6,8 @@ package ee.itcollege.team13.domain;
 import ee.itcollege.team13.domain.HouseType;
 import java.lang.Long;
 import java.util.List;
-import javax.persistence.Entity;
 
 privileged aspect HouseType_Roo_Entity {
-    
-    declare @type: HouseType: @Entity;
     
     public static long HouseType.countHouseTypes() {
         return entityManager().createQuery("SELECT COUNT(o) FROM HouseType o", Long.class).getSingleResult();

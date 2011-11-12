@@ -6,11 +6,8 @@ package ee.itcollege.team13.domain;
 import ee.itcollege.team13.domain.BorderGuardInBed;
 import java.lang.Long;
 import java.util.List;
-import javax.persistence.Entity;
 
 privileged aspect BorderGuardInBed_Roo_Entity {
-    
-    declare @type: BorderGuardInBed: @Entity;
     
     public static long BorderGuardInBed.countBorderGuardInBeds() {
         return entityManager().createQuery("SELECT COUNT(o) FROM BorderGuardInBed o", Long.class).getSingleResult();

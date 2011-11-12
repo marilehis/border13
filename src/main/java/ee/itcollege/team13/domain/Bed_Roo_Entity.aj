@@ -6,11 +6,8 @@ package ee.itcollege.team13.domain;
 import ee.itcollege.team13.domain.Bed;
 import java.lang.Long;
 import java.util.List;
-import javax.persistence.Entity;
 
 privileged aspect Bed_Roo_Entity {
-    
-    declare @type: Bed: @Entity;
     
     public static long Bed.countBeds() {
         return entityManager().createQuery("SELECT COUNT(o) FROM Bed o", Long.class).getSingleResult();

@@ -12,16 +12,10 @@ privileged aspect House_Roo_ToString {
         sb.append("Address: ").append(getAddress()).append(", ");
         sb.append("Beds: ").append(getBeds() == null ? "null" : getBeds().size()).append(", ");
         sb.append("Comment: ").append(getComment()).append(", ");
-        sb.append("Created: ").append(getCreated()).append(", ");
-        sb.append("CreatedBy: ").append(getCreatedBy()).append(", ");
-        sb.append("Deleted: ").append(getDeleted()).append(", ");
-        sb.append("DeletedBy: ").append(getDeletedBy()).append(", ");
         sb.append("HouseId: ").append(getHouseId()).append(", ");
         sb.append("HouseType: ").append(getHouseType()).append(", ");
-        sb.append("Id: ").append(getId()).append(", ");
+        sb.append("Id_: ").append(getId_()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
-        sb.append("Updated: ").append(getUpdated()).append(", ");
-        sb.append("UpdatedBy: ").append(getUpdatedBy()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();
     }

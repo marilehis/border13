@@ -6,11 +6,8 @@ package ee.itcollege.team13.domain;
 import ee.itcollege.team13.domain.Company;
 import java.lang.Long;
 import java.util.List;
-import javax.persistence.Entity;
 
 privileged aspect Company_Roo_Entity {
-    
-    declare @type: Company: @Entity;
     
     public static long Company.countCompanys() {
         return entityManager().createQuery("SELECT COUNT(o) FROM Company o", Long.class).getSingleResult();

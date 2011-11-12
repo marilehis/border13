@@ -1,16 +1,15 @@
 package ee.itcollege.team13.domain;
 
-import ee.itcollege.team13.domain.BaseEntity;
 import java.io.Serializable;
-import java.lang.String;
-import javax.persistence.*;
+import java.util.Collection;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-import ee.itcollege.team13.domain.BorderGuardInBed;
-import java.util.Collection;
-import ee.itcollege.team13.domain.House;
 
 /**
  * Entity implementation class for Entity: Space

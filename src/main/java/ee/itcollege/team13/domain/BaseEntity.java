@@ -39,7 +39,7 @@ public abstract class BaseEntity {
 	@NotNull
 	Date deleted;
 	
-	public String getCreatedBy() {
+	protected String getCreatedBy() {
 		return createdBy;
 	}
 
@@ -47,7 +47,7 @@ public abstract class BaseEntity {
 		this.createdBy = createdBy;
 	}
 
-	public String getUpdatedBy() {
+	protected String getUpdatedBy() {
 		return updatedBy;
 	}
 
@@ -55,7 +55,7 @@ public abstract class BaseEntity {
 		this.updatedBy = updatedBy;
 	}
 
-	public String getDeletedBy() {
+	protected String getDeletedBy() {
 		return deletedBy;
 	}
 
@@ -63,7 +63,7 @@ public abstract class BaseEntity {
 		this.deletedBy = deletedBy;
 	}
 
-	public Date getCreated() {
+	protected Date getCreated() {
 		return created;
 	}
 
@@ -71,7 +71,7 @@ public abstract class BaseEntity {
 		this.created = created;
 	}
 
-	public Date getUpdated() {
+	protected Date getUpdated() {
 		return updated;
 	}
 
@@ -79,7 +79,7 @@ public abstract class BaseEntity {
 		this.updated = updated;
 	}
 
-	public Date getDeleted() {
+	protected Date getDeleted() {
 		return deleted;
 	}
 
@@ -87,7 +87,7 @@ public abstract class BaseEntity {
 		this.deleted = deleted;
 	}
 
-	public Long getId() {
+	protected Long getId() {
 		return id;
 	}
 

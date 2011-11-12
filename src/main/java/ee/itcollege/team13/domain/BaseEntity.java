@@ -16,7 +16,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooToString
 @RooEntity(mappedSuperclass = true)
 
-public class BaseEntity {
+public abstract class BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

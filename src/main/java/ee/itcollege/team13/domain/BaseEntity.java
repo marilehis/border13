@@ -21,22 +21,22 @@ public abstract class BaseEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@NotNull
+//	@NotNull
 	String createdBy;
 	
-	@NotNull
+//	@NotNull
 	String updatedBy;
 	
-	@NotNull
+//	@NotNull
 	String deletedBy;
 	
-	@NotNull
+//	@NotNull
 	Date created;
 	
-	@NotNull
+//	@NotNull
 	Date updated;
 	
-	@NotNull
+//	@NotNull
 	Date deleted;
 	
 	protected String getCreatedBy() {
@@ -87,11 +87,11 @@ public abstract class BaseEntity {
 		this.deleted = deleted;
 	}
 
-	protected Long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	protected void setId(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -11,7 +11,7 @@ privileged aspect Company_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("BorderGuardsInCompany: ").append(getBorderGuardsInCompany() == null ? "null" : getBorderGuardsInCompany().size()).append(", ");
         sb.append("CompanyID: ").append(getCompanyID()).append(", ");
-        sb.append("Id_: ").append(getId_()).append(", ");
+        sb.append("Id: ").append(getId()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();

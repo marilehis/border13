@@ -9,7 +9,7 @@ privileged aspect BaseEntity_Roo_ToString {
     
     public String BaseEntity.toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Id_: ").append(getId_()).append(", ");
+        sb.append("Id: ").append(getId()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();
     }

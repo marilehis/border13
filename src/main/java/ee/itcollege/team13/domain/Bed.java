@@ -12,7 +12,7 @@ import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 
 /**
- * Entity implementation class for Entity: Space
+ * Entity implementation class for Entity: Bed
  *
  */
 @Entity
@@ -20,9 +20,10 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooEntity
 
 public class Bed extends BaseEntity implements Serializable {
-
+	private static final long serialVersionUID = 1L;
+	
 	@NotNull
-	private String spaceId;
+	private String bedId;
 	
 	@NotNull
 	private int length;
@@ -31,23 +32,24 @@ public class Bed extends BaseEntity implements Serializable {
 	private int width;
 	
 	private String comment;
-	private static final long serialVersionUID = 1L;
+	
 
 	@OneToMany(mappedBy = "bed")
 	private Collection<BorderGuardInBed> borderGuardsInBed;
 
+	@NotNull
 	@ManyToOne
 	private House house;
 
 	public Bed() {
 		super();
 	}   
-	public String getSpaceId() {
-		return this.spaceId;
+	public String getBedId() {
+		return this.bedId;
 	}
 
-	public void setSpaceId(String spaceId) {
-		this.spaceId = spaceId;
+	public void setBedId(String bedId) {
+		this.bedId = bedId;
 	}   
 	public int getLength() {
 		return this.length;

@@ -13,7 +13,7 @@ privileged aspect BorderGuard_Roo_ToString {
         sb.append("BorderGuardsInBed: ").append(getBorderGuardsInBed() == null ? "null" : getBorderGuardsInBed().size()).append(", ");
         sb.append("BorderGuardsInCompany: ").append(getBorderGuardsInCompany() == null ? "null" : getBorderGuardsInCompany().size()).append(", ");
         sb.append("Comment: ").append(getComment()).append(", ");
-        sb.append("Id_: ").append(getId_()).append(", ");
+        sb.append("Id: ").append(getId()).append(", ");
         sb.append("NameFirst: ").append(getNameFirst()).append(", ");
         sb.append("NameLast: ").append(getNameLast()).append(", ");
         sb.append("PersonalId: ").append(getPersonalId()).append(", ");

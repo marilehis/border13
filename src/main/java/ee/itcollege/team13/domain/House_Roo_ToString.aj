@@ -14,7 +14,7 @@ privileged aspect House_Roo_ToString {
         sb.append("Comment: ").append(getComment()).append(", ");
         sb.append("HouseId: ").append(getHouseId()).append(", ");
         sb.append("HouseType: ").append(getHouseType()).append(", ");
-        sb.append("Id_: ").append(getId_()).append(", ");
+        sb.append("Id: ").append(getId()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();

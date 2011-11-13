@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 
@@ -19,38 +20,42 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooEntity
 
 public class BorderGuardInBed extends BaseEntity implements Serializable {
-
-	@NotNull
-	private Date from;
-	
-	@NotNull
-	private Date to;
-	
-	private String comment;
 	private static final long serialVersionUID = 1L;
 
+	@NotNull
+	@DateTimeFormat(style="M-")
+	private Date startDate;
+	
+	@NotNull
+	@DateTimeFormat(style="M-")
+	private Date endDate;
+	
+	private String comment;
+
+	@NotNull	
 	@ManyToOne
 	private Bed bed;
 
+	@NotNull
 	@ManyToOne
 	private BorderGuard borderGuard;
 
 	public BorderGuardInBed() {
 		super();
 	}   
-	public Date getFrom() {
-		return this.from;
+	public Date getStartDate() {
+		return this.startDate;
 	}
 
-	public void setFrom(Date from) {
-		this.from = from;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}   
-	public Date getTo() {
-		return this.to;
+	public Date getEndDate() {
+		return this.endDate;
 	}
 
-	public void setTo(Date to) {
-		this.to = to;
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}   
 	public String getComment() {
 		return this.comment;

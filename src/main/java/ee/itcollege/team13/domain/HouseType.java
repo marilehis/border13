@@ -19,7 +19,8 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooEntity
 
 public class HouseType extends BaseEntity implements Serializable {
-
+	private static final long serialVersionUID = 1L;
+	
 	@NotNull
 	private String houseTypeId;
 	
@@ -27,7 +28,7 @@ public class HouseType extends BaseEntity implements Serializable {
 	private String name;
 	
 	private String comment;
-	private static final long serialVersionUID = 1L;
+
 
 	@OneToMany(mappedBy = "houseType")
 	private Collection<House> houses;

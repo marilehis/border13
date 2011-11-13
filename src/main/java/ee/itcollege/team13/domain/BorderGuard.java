@@ -19,7 +19,8 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooEntity
 
 public class BorderGuard extends BaseEntity implements Serializable {
-
+	private static final long serialVersionUID = 1L;
+	
 	@NotNull
 	private String borderGuardId;
 	
@@ -30,13 +31,13 @@ public class BorderGuard extends BaseEntity implements Serializable {
 	private String nameLast;
 	
 	@NotNull
-	private String sex;
+	private Character sex;
 	
 	@NotNull
 	private String personalId;
 	
 	private String comment;
-	private static final long serialVersionUID = 1L;
+	
 
 	@OneToMany(mappedBy = "borderGuard")
 	private Collection<BorderGuardInCompany> borderGuardsInCompany;
@@ -68,11 +69,11 @@ public class BorderGuard extends BaseEntity implements Serializable {
 	public void setNameLast(String nameLast) {
 		this.nameLast = nameLast;
 	}   
-	public String getSex() {
+	public Character getSex() {
 		return this.sex;
 	}
 
-	public void setSex(String sex) {
+	public void setSex(Character sex) {
 		this.sex = sex;
 	}   
 	public String getPersonalId() {

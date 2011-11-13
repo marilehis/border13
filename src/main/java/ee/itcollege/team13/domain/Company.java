@@ -18,13 +18,14 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooToString
 @RooEntity
 public class Company extends BaseEntity implements Serializable {
-
+	private static final long serialVersionUID = 1L;
+	
 	@NotNull
 	private String companyID;
 
 	@NotNull
 	private String name;
-	private static final long serialVersionUID = 1L;
+	
 
 	@OneToMany(mappedBy = "company")
 	private Collection<BorderGuardInCompany> borderGuardsInCompany;

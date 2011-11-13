@@ -12,9 +12,9 @@ privileged aspect BorderGuardInBed_Roo_ToString {
         sb.append("Bed: ").append(getBed()).append(", ");
         sb.append("BorderGuard: ").append(getBorderGuard()).append(", ");
         sb.append("Comment: ").append(getComment()).append(", ");
-        sb.append("From: ").append(getFrom()).append(", ");
-        sb.append("Id_: ").append(getId_()).append(", ");
-        sb.append("To: ").append(getTo()).append(", ");
+        sb.append("EndDate: ").append(getEndDate()).append(", ");
+        sb.append("Id: ").append(getId()).append(", ");
+        sb.append("StartDate: ").append(getStartDate()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();
     }

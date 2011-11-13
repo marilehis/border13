@@ -20,7 +20,8 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooEntity
 
 public class House extends BaseEntity implements Serializable {
-
+	private static final long serialVersionUID = 1L;
+	
 	@NotNull
 	private String houseId;
 	
@@ -31,11 +32,12 @@ public class House extends BaseEntity implements Serializable {
 	private String address;
 	
 	private String comment;
-	private static final long serialVersionUID = 1L;
+
 
 	@OneToMany(mappedBy = "house")
 	private Collection<Bed> beds;
 
+	@NotNull
 	@ManyToOne
 	private HouseType houseType;
 

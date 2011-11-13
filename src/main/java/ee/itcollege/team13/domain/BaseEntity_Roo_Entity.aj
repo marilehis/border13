@@ -22,14 +22,6 @@ privileged aspect BaseEntity_Roo_Entity {
     @Column(name = "version")
     private Integer BaseEntity.version;
     
-    public Long BaseEntity.getId_() {
-        return this.id;
-    }
-    
-    public void BaseEntity.setId_(Long id) {
-        this.id = id;
-    }
-    
     public Integer BaseEntity.getVersion() {
         return this.version;
     }

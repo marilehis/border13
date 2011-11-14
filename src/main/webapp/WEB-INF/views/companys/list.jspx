@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ee_itcollege_team13_domain_Company" items="${companys}" z="qyhdXDCuDgOTvK52aT4AJC/OSCc=">
+        <table:table data="${companys}" id="l_ee_itcollege_team13_domain_Company" path="/companys" z="ji8KeMxx/cTRnk/M2w0TaQt9XKo=">
+            <table:column id="c_ee_itcollege_team13_domain_Company_companyID" property="companyID" z="RNRRmGEgB9UuCQyQjOuWVcoz2Wc="/>
+            <table:column id="c_ee_itcollege_team13_domain_Company_name" property="name" z="KcbCiROCF43dYcRz5ShyZwNH0X0="/>
+            <table:column id="c_ee_itcollege_team13_domain_Company_borderGuardsInCompany" property="borderGuardsInCompany" z="e9+2cG5kiFPD1rtC/kPSyX1XPhE="/>
+        </table:table>
+    </page:list>
+</div>

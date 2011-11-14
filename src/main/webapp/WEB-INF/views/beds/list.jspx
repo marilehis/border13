@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ee_itcollege_team13_domain_Bed" items="${beds}" z="CKA/kyiJYR8eIEZwGmwRXalG4nQ=">
+        <table:table data="${beds}" id="l_ee_itcollege_team13_domain_Bed" path="/beds" z="iiEdPYasfOK+EGuUxtQfQw5Ml5k=">
+            <table:column id="c_ee_itcollege_team13_domain_Bed_bedId" property="bedId" z="dJqd5t1htTb7OLC7u9ItlLqMaig="/>
+            <table:column id="c_ee_itcollege_team13_domain_Bed_length" property="length" z="IzNVv8y8udkj11i1pH9biusgTD4="/>
+            <table:column id="c_ee_itcollege_team13_domain_Bed_width" property="width" z="oklDGmqOaHqPtqBWT6KTGF1gP8I="/>
+            <table:column id="c_ee_itcollege_team13_domain_Bed_comment" property="comment" z="lT6jeqHvmsAFkrrw+1Deq0OYH4w="/>
+            <table:column id="c_ee_itcollege_team13_domain_Bed_borderGuardsInBed" property="borderGuardsInBed" z="JcPplYHhjVZFtd91XTurd+Ut0Fs="/>
+            <table:column id="c_ee_itcollege_team13_domain_Bed_house" property="house" z="9wF3Tl4Z1C0tJUN2NcUTJMh/zfQ="/>
+        </table:table>
+    </page:list>
+</div>

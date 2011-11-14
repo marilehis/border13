@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team13_domain_BorderGuardInBed" object="${borderguardinbed}" path="/borderguardinbeds" z="FjW4DMdjkyDKFD0s1iu/X0s7dXk=">
+        <field:display date="true" dateTimePattern="${borderGuardInBed_startdate_date_format}" field="startDate" id="s_ee_itcollege_team13_domain_BorderGuardInBed_startDate" object="${borderguardinbed}" z="xkiccIc3B5kp/1HOdFAtk/ZWius="/>
+        <field:display date="true" dateTimePattern="${borderGuardInBed_enddate_date_format}" field="endDate" id="s_ee_itcollege_team13_domain_BorderGuardInBed_endDate" object="${borderguardinbed}" z="v4eb+oqmfE+acywcgZLA3EN73/k="/>
+        <field:display field="comment" id="s_ee_itcollege_team13_domain_BorderGuardInBed_comment" object="${borderguardinbed}" z="l1+tHw9MSMK/kZ9fJTD4iQPdSaQ="/>
+        <field:display field="bed" id="s_ee_itcollege_team13_domain_BorderGuardInBed_bed" object="${borderguardinbed}" z="JluqhHfJgVaMREPqnNMQNnybm/E="/>
+        <field:display field="borderGuard" id="s_ee_itcollege_team13_domain_BorderGuardInBed_borderGuard" object="${borderguardinbed}" z="+zPV8lUer69RFFyYxwq0qRZ/Euk="/>
+    </page:show>
+</div>

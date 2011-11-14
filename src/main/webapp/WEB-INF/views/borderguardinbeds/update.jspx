@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ee_itcollege_team13_domain_BorderGuardInBed" modelAttribute="borderGuardInBed" path="/borderguardinbeds" versionField="Version" z="aOqrdipoHWf2ntiNStPPXYQ9XnY=">
+        <field:datetime dateTimePattern="${borderGuardInBed_startdate_date_format}" field="startDate" id="c_ee_itcollege_team13_domain_BorderGuardInBed_startDate" required="true" z="gofGgwj/NDJ1s39UoNWjnh8HLG4="/>
+        <field:datetime dateTimePattern="${borderGuardInBed_enddate_date_format}" field="endDate" id="c_ee_itcollege_team13_domain_BorderGuardInBed_endDate" required="true" z="6KPrQfsg7DXO5nKyVjU++9irLlo="/>
+        <field:input field="comment" id="c_ee_itcollege_team13_domain_BorderGuardInBed_comment" z="rcLEx6NPnKrvJmBDm5PNhV9rhqE="/>
+        <field:select field="bed" id="c_ee_itcollege_team13_domain_BorderGuardInBed_bed" itemValue="id" items="${beds}" path="/beds" required="true" z="CGmOhzZHbEeyXqr0p6pCehpWqSI="/>
+        <field:select field="borderGuard" id="c_ee_itcollege_team13_domain_BorderGuardInBed_borderGuard" itemValue="id" items="${borderguards}" path="/borderguards" required="true" z="tssSvJdUVSDTJP9oqkTLrN82M3s="/>
+    </form:update>
+</div>

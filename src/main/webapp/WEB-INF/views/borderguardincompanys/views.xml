@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="borderguardincompanys/list">
+        <put-attribute name="body" value="/WEB-INF/views/borderguardincompanys/list.jspx"/>
+    </definition>
+<definition extends="default" name="borderguardincompanys/show">
+        <put-attribute name="body" value="/WEB-INF/views/borderguardincompanys/show.jspx"/>
+    </definition>
+<definition extends="default" name="borderguardincompanys/create">
+        <put-attribute name="body" value="/WEB-INF/views/borderguardincompanys/create.jspx"/>
+    </definition>
+<definition extends="default" name="borderguardincompanys/update">
+        <put-attribute name="body" value="/WEB-INF/views/borderguardincompanys/update.jspx"/>
+    </definition>
+</tiles-definitions>

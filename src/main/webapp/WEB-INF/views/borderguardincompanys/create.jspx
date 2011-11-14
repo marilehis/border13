@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_ee_itcollege_team13_domain_BorderGuardInCompany" modelAttribute="borderGuardInCompany" path="/borderguardincompanys" render="${empty dependencies}" z="aMnNxW83lvqf8iLA4k8IPkmaASY=">
+        <field:datetime dateTimePattern="${borderGuardInCompany_startdate_date_format}" field="startDate" id="c_ee_itcollege_team13_domain_BorderGuardInCompany_startDate" required="true" z="X6rZMOnPTc1ZlX34Rt7XGjVyI6U="/>
+        <field:datetime dateTimePattern="${borderGuardInCompany_enddate_date_format}" field="endDate" id="c_ee_itcollege_team13_domain_BorderGuardInCompany_endDate" required="true" z="bjsS8WC2i783d9sc/xlBgVqLaBw="/>
+        <field:input field="comment" id="c_ee_itcollege_team13_domain_BorderGuardInCompany_comment" z="8/8349oS9nNLTDYdeSISzfuReKA="/>
+        <field:select field="company" id="c_ee_itcollege_team13_domain_BorderGuardInCompany_company" itemValue="id" items="${companys}" path="/companys" required="true" z="k/TFiPF3SuWfDhfD1YZ3d+taYSU="/>
+        <field:select field="borderGuard" id="c_ee_itcollege_team13_domain_BorderGuardInCompany_borderGuard" itemValue="id" items="${borderguards}" path="/borderguards" required="true" z="a2xlR68miMFyX1Imw0IG9sjUVRU="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team13_domain_BorderGuardInCompany" render="${not empty dependencies}" z="LFBNZLbMhWES6jV2kAKj9zTXZhw="/>
+</div>

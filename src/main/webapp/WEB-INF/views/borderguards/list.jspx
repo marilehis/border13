@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ee_itcollege_team13_domain_BorderGuard" items="${borderguards}" z="mO0o8CFBXkub3egNphbhooyz+Zo=">
+        <table:table data="${borderguards}" id="l_ee_itcollege_team13_domain_BorderGuard" path="/borderguards" z="bG+hS5/rMl/VjfBxEHuAmMa4w8Y=">
+            <table:column id="c_ee_itcollege_team13_domain_BorderGuard_borderGuardId" property="borderGuardId" z="Qxp5oSwJXWU3PfOnUYFYop8Fuf4="/>
+            <table:column id="c_ee_itcollege_team13_domain_BorderGuard_nameFirst" property="nameFirst" z="S0TxcQJSuqOydOmxggVEHOOjZ0E="/>
+            <table:column id="c_ee_itcollege_team13_domain_BorderGuard_nameLast" property="nameLast" z="CIud5k2nld+JOfJdE+qo2zpr2Bk="/>
+            <table:column id="c_ee_itcollege_team13_domain_BorderGuard_sex" property="sex" z="O3lLmdJ0mzp8wUfc74UwhzJZeQk="/>
+            <table:column id="c_ee_itcollege_team13_domain_BorderGuard_personalId" property="personalId" z="mTGx6Aqu2WxFZT4fXqx+8tLk9Q8="/>
+            <table:column id="c_ee_itcollege_team13_domain_BorderGuard_comment" property="comment" z="av0BDnw39UF9ESti1CEeyXFDyqU="/>
+        </table:table>
+    </page:list>
+</div>

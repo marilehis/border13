@@ -31,6 +31,8 @@
         <menu:category id="c_roomentity" z="bdsrQjQ6mE9Cap5eCSViWXEztmU=">
             <menu:item id="i_roomentity_new" messageCode="global_menu_new" url="/roomentitys?form" z="XUC5FGQyRuY5BcYgJHme/KQrsio="/>
             <menu:item id="i_roomentity_list" messageCode="global_menu_list" url="/roomentitys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="U8+GyoNMIF6IjailUwhUAtengd0="/>
+        <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
+            <menu:item id="i_controller__housingreportindex_id" messageCode="global_generic" url="/housingreport/index" z="1lz5xy7qFmDzpcxNAZkx4n+UO+Y="/>
         </menu:category>
     </menu:menu>
 </div>

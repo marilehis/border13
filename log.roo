@@ -6,3 +6,8 @@ persistence setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT
 web mvc setup
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-12 02:19:43
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-12 15:45:20
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-19 12:45:18
+web mvc controller --class ee.itcollege.team13.web.HousingReport
+web mvc controller --class ee.itcollege.team13.web.HousingReportController
+hint
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-19 22:08:40

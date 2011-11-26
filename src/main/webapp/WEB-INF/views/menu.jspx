@@ -31,5 +31,8 @@
             <menu:item id="i_borderguardinbed_new" messageCode="global_menu_new" url="/borderguardinbeds?form" z="BegizMkPITd0FaMMPAkzPTXIbM8="/>
             <menu:item id="i_borderguardinbed_list" messageCode="global_menu_list" url="/borderguardinbeds?page=1&amp;size=${empty param.size ? 10 : param.size}" z="LpEHCjXpy7SbQHRIEvoIW57F5MY="/>
         </menu:category>
+        <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
+            <menu:item id="i_controller__housingreportindex_id" messageCode="global_generic" url="/housingreport/index" z="1lz5xy7qFmDzpcxNAZkx4n+UO+Y="/>
+        </menu:category>
     </menu:menu>
 </div>

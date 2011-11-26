@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ee_itcollege_team13_domain_RoomEntity" items="${roomentitys}" z="VVcRLrNgp6cjLG6W276cOzubOys=">
+        <table:table data="${roomentitys}" id="l_ee_itcollege_team13_domain_RoomEntity" path="/roomentitys" z="x5BwK2VFGPiPXU9EuLBp99+cj/Q=">
+            <table:column id="c_ee_itcollege_team13_domain_RoomEntity_roomEntityId" property="roomEntityId" z="75rFdhTO1x3vFd4hDyH17wIz0Zc="/>
+            <table:column id="c_ee_itcollege_team13_domain_RoomEntity_name" property="name" z="+EsZuSVzzGdxqCtEKZmrsUbiu/w="/>
+            <table:column id="c_ee_itcollege_team13_domain_RoomEntity_address" property="address" z="Frqax7hgq5QJtXzRxhciQMed1C8="/>
+            <table:column id="c_ee_itcollege_team13_domain_RoomEntity_comment" property="comment" z="n7aQTTMDR1Lwq2KAlXGj3xpiTUc="/>
+            <table:column id="c_ee_itcollege_team13_domain_RoomEntity_roomType" property="roomType" z="vs9WpHmpdasUYPMJvF9e12JuxyY="/>
+            <table:column id="c_ee_itcollege_team13_domain_RoomEntity_parentRoomEntity" property="parentRoomEntity" z="mfJ3ZZbmXRf8kNxksZMaQSMAEFM="/>
+        </table:table>
+    </page:list>
+</div>

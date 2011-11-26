@@ -5,17 +5,18 @@ package ee.itcollege.team13.domain;
 
 import java.lang.String;
 
-privileged aspect House_Roo_ToString {
+privileged aspect RoomEntity_Roo_ToString {
     
-    public String House.toString() {
+    public String RoomEntity.toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Address: ").append(getAddress()).append(", ");
         sb.append("Beds: ").append(getBeds() == null ? "null" : getBeds().size()).append(", ");
+        sb.append("ChildRoomEntitys: ").append(getChildRoomEntitys() == null ? "null" : getChildRoomEntitys().size()).append(", ");
         sb.append("Comment: ").append(getComment()).append(", ");
-        sb.append("HouseId: ").append(getHouseId()).append(", ");
-        sb.append("HouseType: ").append(getHouseType()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
+        sb.append("RoomEntityId: ").append(getRoomEntityId()).append(", ");
+        sb.append("RoomType: ").append(getRoomType()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();
     }

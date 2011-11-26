@@ -9,59 +9,64 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
+import ee.itcollege.team13.domain.RoomEntity;
 
 /**
- * Entity implementation class for Entity: HouseType
- *
+ * Entity implementation class for Entity: RoomEntityType
  */
 @Entity
 @RooToString
 @RooEntity
 
-public class HouseType extends BaseEntity implements Serializable {
+public class RoomType extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@NotNull
-	private String houseTypeId;
+	private String roomTypeId;
 	
 	@NotNull
 	private String name;
 	
 	private String comment;
 
+	@OneToMany(mappedBy = "roomType")
+	private Collection<RoomEntity> roomEntitys;
 
-	@OneToMany(mappedBy = "houseType")
-	private Collection<House> houses;
-
-	public HouseType() {
-		super();
-	}   
-	public String getHouseTypeId() {
-		return this.houseTypeId;
+	
+	
+	public String getRoomTypeId() {
+		return roomTypeId;
 	}
 
-	public void setHouseTypeId(String houseTypeId) {
-		this.houseTypeId = houseTypeId;
-	}   
+	public void setRoomTypeId(String roomTypeId) {
+		this.roomTypeId = roomTypeId;
+	}
+
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
-	}   
+	}
+
 	public String getComment() {
-		return this.comment;
+		return comment;
 	}
 
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public Collection<House> getHouses() {
-	    return houses;
+
+	public Collection<RoomEntity> getRoomEntitys() {
+	    return roomEntitys;
 	}
-	public void setHouses(Collection<House> param) {
-	    this.houses = param;
+
+	public void setRoomEntitys(Collection<RoomEntity> param) {
+	    this.roomEntitys = param;
 	}
+
+
+
    
 }

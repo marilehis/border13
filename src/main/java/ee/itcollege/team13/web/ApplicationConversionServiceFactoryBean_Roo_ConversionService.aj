@@ -8,8 +8,8 @@ import ee.itcollege.team13.domain.BorderGuard;
 import ee.itcollege.team13.domain.BorderGuardInBed;
 import ee.itcollege.team13.domain.BorderGuardInCompany;
 import ee.itcollege.team13.domain.Company;
-import ee.itcollege.team13.domain.House;
-import ee.itcollege.team13.domain.HouseType;
+import ee.itcollege.team13.domain.RoomEntity;
+import ee.itcollege.team13.domain.RoomType;
 import java.lang.String;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
@@ -22,8 +22,8 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(new BorderGuardInBedConverter());
         registry.addConverter(new BorderGuardInCompanyConverter());
         registry.addConverter(new CompanyConverter());
-        registry.addConverter(new HouseConverter());
-        registry.addConverter(new HouseTypeConverter());
+        registry.addConverter(new RoomEntityConverter());
+        registry.addConverter(new RoomTypeConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {
@@ -66,16 +66,16 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         
     }
     
-    static class ee.itcollege.team13.web.ApplicationConversionServiceFactoryBean.HouseConverter implements Converter<House, String> {
-        public String convert(House house) {
-            return new StringBuilder().append(house.getHouseId()).append(" ").append(house.getName()).append(" ").append(house.getAddress()).append(" ").append(house.getComment()).toString();
+    static class ee.itcollege.team13.web.ApplicationConversionServiceFactoryBean.RoomEntityConverter implements Converter<RoomEntity, String> {
+        public String convert(RoomEntity roomEntity) {
+            return new StringBuilder().append(roomEntity.getRoomEntityId()).append(" ").append(roomEntity.getName()).append(" ").append(roomEntity.getAddress()).append(" ").append(roomEntity.getComment()).toString();
         }
         
     }
     
-    static class ee.itcollege.team13.web.ApplicationConversionServiceFactoryBean.HouseTypeConverter implements Converter<HouseType, String> {
-        public String convert(HouseType houseType) {
-            return new StringBuilder().append(houseType.getHouseTypeId()).append(" ").append(houseType.getName()).append(" ").append(houseType.getComment()).toString();
+    static class ee.itcollege.team13.web.ApplicationConversionServiceFactoryBean.RoomTypeConverter implements Converter<RoomType, String> {
+        public String convert(RoomType roomType) {
+            return new StringBuilder().append(roomType.getRoomTypeId()).append(" ").append(roomType.getName()).append(" ").append(roomType.getComment()).toString();
         }
         
     }

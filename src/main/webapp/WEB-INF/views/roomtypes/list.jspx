@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ee_itcollege_team13_domain_RoomType" items="${roomtypes}" z="E0/H2N8thF5ZgPA4lGOqzpY6sUk=">
+        <table:table data="${roomtypes}" id="l_ee_itcollege_team13_domain_RoomType" path="/roomtypes" z="dsjcyhEhsP3QZx15kpA8FB+lC2E=">
+            <table:column id="c_ee_itcollege_team13_domain_RoomType_roomTypeId" property="roomTypeId" z="B+tiu/UIqLzWHDAoLtLD2qlxhG4="/>
+            <table:column id="c_ee_itcollege_team13_domain_RoomType_name" property="name" z="zWs2Am+51zdakXVgHqHqFajne7Q="/>
+            <table:column id="c_ee_itcollege_team13_domain_RoomType_comment" property="comment" z="eh6IcHrxRGfjF1/QzFNjAuD3OQU="/>
+            <table:column id="c_ee_itcollege_team13_domain_RoomType_roomEntitys" property="roomEntitys" z="subssqs56vyFfGNHaeUTElvVmTI="/>
+        </table:table>
+    </page:list>
+</div>

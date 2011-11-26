@@ -5,8 +5,8 @@ package ee.itcollege.team13.domain;
 
 import org.springframework.beans.factory.annotation.Configurable;
 
-privileged aspect HouseType_Roo_Configurable {
+privileged aspect RoomType_Roo_Configurable {
     
-    declare @type: HouseType: @Configurable;
+    declare @type: RoomType: @Configurable;
     
 }

@@ -5,15 +5,15 @@ package ee.itcollege.team13.domain;
 
 import java.lang.String;
 
-privileged aspect HouseType_Roo_ToString {
+privileged aspect RoomType_Roo_ToString {
     
-    public String HouseType.toString() {
+    public String RoomType.toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Comment: ").append(getComment()).append(", ");
-        sb.append("HouseTypeId: ").append(getHouseTypeId()).append(", ");
-        sb.append("Houses: ").append(getHouses() == null ? "null" : getHouses().size()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
+        sb.append("RoomEntitys: ").append(getRoomEntitys() == null ? "null" : getRoomEntitys().size()).append(", ");
+        sb.append("RoomTypeId: ").append(getRoomTypeId()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();
     }

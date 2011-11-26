@@ -4,12 +4,13 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
+import ee.itcollege.team13.domain.RoomEntity;
+import javax.persistence.ManyToOne;
 
 /**
  * Entity implementation class for Entity: Bed
@@ -37,9 +38,8 @@ public class Bed extends BaseEntity implements Serializable {
 	@OneToMany(mappedBy = "bed")
 	private Collection<BorderGuardInBed> borderGuardsInBed;
 
-	@NotNull
 	@ManyToOne
-	private House house;
+	private RoomEntity roomEntity;
 
 	public Bed() {
 		super();
@@ -78,11 +78,11 @@ public class Bed extends BaseEntity implements Serializable {
 	public void setBorderGuardsInBed(Collection<BorderGuardInBed> param) {
 	    this.borderGuardsInBed = param;
 	}
-	public House getHouse() {
-	    return house;
+	public RoomEntity getRoomEntity() {
+	    return roomEntity;
 	}
-	public void setHouse(House param) {
-	    this.house = param;
+	public void setRoomEntity(RoomEntity param) {
+	    this.roomEntity = param;
 	}
    
 }

@@ -3,9 +3,8 @@
 
 package ee.itcollege.team13.web;
 
-import ee.itcollege.team13.domain.Bed;
-import ee.itcollege.team13.domain.BorderGuardInBed;
 import ee.itcollege.team13.domain.RoomEntity;
+import ee.itcollege.team13.domain.RoomType;
 import java.io.UnsupportedEncodingException;
 import java.lang.Integer;
 import java.lang.Long;
@@ -23,87 +22,82 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
-privileged aspect BedController_Roo_Controller {
+privileged aspect RoomTypeController_Roo_Controller {
     
     @RequestMapping(method = RequestMethod.POST)
-    public String BedController.create(@Valid Bed bed, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+    public String RoomTypeController.create(@Valid RoomType roomType, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("bed", bed);
-            return "beds/create";
+            uiModel.addAttribute("roomType", roomType);
+            return "roomtypes/create";
         }
         uiModel.asMap().clear();
-        bed.persist();
-        return "redirect:/beds/" + encodeUrlPathSegment(bed.getId().toString(), httpServletRequest);
+        roomType.persist();
+        return "redirect:/roomtypes/" + encodeUrlPathSegment(roomType.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String BedController.createForm(Model uiModel) {
-        uiModel.addAttribute("bed", new Bed());
-        return "beds/create";
+    public String RoomTypeController.createForm(Model uiModel) {
+        uiModel.addAttribute("roomType", new RoomType());
+        return "roomtypes/create";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String BedController.show(@PathVariable("id") Long id, Model uiModel) {
-        uiModel.addAttribute("bed", Bed.findBed(id));
+    public String RoomTypeController.show(@PathVariable("id") Long id, Model uiModel) {
+        uiModel.addAttribute("roomtype", RoomType.findRoomType(id));
         uiModel.addAttribute("itemId", id);
-        return "beds/show";
+        return "roomtypes/show";
     }
     
     @RequestMapping(method = RequestMethod.GET)
-    public String BedController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    public String RoomTypeController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
-            uiModel.addAttribute("beds", Bed.findBedEntries(page == null ? 0 : (page.intValue() - 1) * sizeNo, sizeNo));
-            float nrOfPages = (float) Bed.countBeds() / sizeNo;
+            uiModel.addAttribute("roomtypes", RoomType.findRoomTypeEntries(page == null ? 0 : (page.intValue() - 1) * sizeNo, sizeNo));
+            float nrOfPages = (float) RoomType.countRoomTypes() / sizeNo;
             uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
-            uiModel.addAttribute("beds", Bed.findAllBeds());
+            uiModel.addAttribute("roomtypes", RoomType.findAllRoomTypes());
         }
-        return "beds/list";
+        return "roomtypes/list";
     }
     
     @RequestMapping(method = RequestMethod.PUT)
-    public String BedController.update(@Valid Bed bed, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+    public String RoomTypeController.update(@Valid RoomType roomType, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("bed", bed);
-            return "beds/update";
+            uiModel.addAttribute("roomType", roomType);
+            return "roomtypes/update";
         }
         uiModel.asMap().clear();
-        bed.merge();
-        return "redirect:/beds/" + encodeUrlPathSegment(bed.getId().toString(), httpServletRequest);
+        roomType.merge();
+        return "redirect:/roomtypes/" + encodeUrlPathSegment(roomType.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
-    public String BedController.updateForm(@PathVariable("id") Long id, Model uiModel) {
-        uiModel.addAttribute("bed", Bed.findBed(id));
-        return "beds/update";
+    public String RoomTypeController.updateForm(@PathVariable("id") Long id, Model uiModel) {
+        uiModel.addAttribute("roomType", RoomType.findRoomType(id));
+        return "roomtypes/update";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public String BedController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
-        Bed.findBed(id).remove();
+    public String RoomTypeController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+        RoomType.findRoomType(id).remove();
         uiModel.asMap().clear();
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
-        return "redirect:/beds";
-    }
-    
-    @ModelAttribute("beds")
-    public Collection<Bed> BedController.populateBeds() {
-        return Bed.findAllBeds();
-    }
-    
-    @ModelAttribute("borderguardinbeds")
-    public Collection<BorderGuardInBed> BedController.populateBorderGuardInBeds() {
-        return BorderGuardInBed.findAllBorderGuardInBeds();
+        return "redirect:/roomtypes";
     }
     
     @ModelAttribute("roomentitys")
-    public Collection<RoomEntity> BedController.populateRoomEntitys() {
+    public Collection<RoomEntity> RoomTypeController.populateRoomEntitys() {
         return RoomEntity.findAllRoomEntitys();
     }
     
-    String BedController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
+    @ModelAttribute("roomtypes")
+    public Collection<RoomType> RoomTypeController.populateRoomTypes() {
+        return RoomType.findAllRoomTypes();
+    }
+    
+    String RoomTypeController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
         String enc = httpServletRequest.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;

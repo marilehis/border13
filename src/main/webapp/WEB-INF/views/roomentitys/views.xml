@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="roomentitys/list">
+        <put-attribute name="body" value="/WEB-INF/views/roomentitys/list.jspx"/>
+    </definition>
+<definition extends="default" name="roomentitys/show">
+        <put-attribute name="body" value="/WEB-INF/views/roomentitys/show.jspx"/>
+    </definition>
+<definition extends="default" name="roomentitys/create">
+        <put-attribute name="body" value="/WEB-INF/views/roomentitys/create.jspx"/>
+    </definition>
+<definition extends="default" name="roomentitys/update">
+        <put-attribute name="body" value="/WEB-INF/views/roomentitys/update.jspx"/>
+    </definition>
+</tiles-definitions>

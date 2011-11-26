@@ -12,9 +12,9 @@ privileged aspect Bed_Roo_ToString {
         sb.append("BedId: ").append(getBedId()).append(", ");
         sb.append("BorderGuardsInBed: ").append(getBorderGuardsInBed() == null ? "null" : getBorderGuardsInBed().size()).append(", ");
         sb.append("Comment: ").append(getComment()).append(", ");
-        sb.append("House: ").append(getHouse()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Length: ").append(getLength()).append(", ");
+        sb.append("RoomEntity: ").append(getRoomEntity()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");
         sb.append("Width: ").append(getWidth());
         return sb.toString();

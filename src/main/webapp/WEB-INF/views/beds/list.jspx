@@ -9,7 +9,7 @@
             <table:column id="c_ee_itcollege_team13_domain_Bed_width" property="width" z="oklDGmqOaHqPtqBWT6KTGF1gP8I="/>
             <table:column id="c_ee_itcollege_team13_domain_Bed_comment" property="comment" z="lT6jeqHvmsAFkrrw+1Deq0OYH4w="/>
             <table:column id="c_ee_itcollege_team13_domain_Bed_borderGuardsInBed" property="borderGuardsInBed" z="JcPplYHhjVZFtd91XTurd+Ut0Fs="/>
-            <table:column id="c_ee_itcollege_team13_domain_Bed_house" property="house" z="9wF3Tl4Z1C0tJUN2NcUTJMh/zfQ="/>
+            <table:column id="c_ee_itcollege_team13_domain_Bed_roomEntity" property="roomEntity" z="i3xHqaIayiQS63uJ4sjgoXTeCCs="/>
         </table:table>
     </page:list>
 </div>

@@ -3,14 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
-        <menu:category id="c_housetype" z="PPwwlYDPgmmP5/3C0QxEC9+m+cM=">
-            <menu:item id="i_housetype_new" messageCode="global_menu_new" url="/housetypes?form" z="nL2ejFGcz5XOnPxMhf2u8e3pAjE="/>
-            <menu:item id="i_housetype_list" messageCode="global_menu_list" url="/housetypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="0hVaZ2LJaY9hFGPCjkmsdr+MWNg="/>
-        </menu:category>
-        <menu:category id="c_house" z="nb+vuw0ciOrQZlDinubG16INQRQ=">
-            <menu:item id="i_house_new" messageCode="global_menu_new" url="/houses?form" z="gGAoexcd4bQHbLxHmI4Wk84R8uE="/>
-            <menu:item id="i_house_list" messageCode="global_menu_list" url="/houses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="3SAIpzbDVBdb1cX5lirtfxAf8ZI="/>
-        </menu:category>
+       
         <menu:category id="c_bed" z="nt8TkGpDqzAr9lu5btJB/g7b95E=">
             <menu:item id="i_bed_new" messageCode="global_menu_new" url="/beds?form" z="C03A5vUiQ3JrfaQvZXDR5b7BrUI="/>
             <menu:item id="i_bed_list" messageCode="global_menu_list" url="/beds?page=1&amp;size=${empty param.size ? 10 : param.size}" z="C57+tAB7FhgOUV0AVQKdNRGub80="/>
@@ -30,6 +23,14 @@
         <menu:category id="c_borderguardinbed" z="CwTS5sTAJh4F32Jzw+hqmUUKdPg=">
             <menu:item id="i_borderguardinbed_new" messageCode="global_menu_new" url="/borderguardinbeds?form" z="BegizMkPITd0FaMMPAkzPTXIbM8="/>
             <menu:item id="i_borderguardinbed_list" messageCode="global_menu_list" url="/borderguardinbeds?page=1&amp;size=${empty param.size ? 10 : param.size}" z="LpEHCjXpy7SbQHRIEvoIW57F5MY="/>
+        </menu:category>
+        <menu:category id="c_roomtype" z="Y/+UDmgtAjw+Ac2Rp2rDwAjkE78=">
+            <menu:item id="i_roomtype_new" messageCode="global_menu_new" url="/roomtypes?form" z="4qtE0IN/50xkY2NoUmhONG3LthU="/>
+            <menu:item id="i_roomtype_list" messageCode="global_menu_list" url="/roomtypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="I0scyAa1pmjxbJm6+JNKvoSDzw8="/>
+        </menu:category>
+        <menu:category id="c_roomentity" z="bdsrQjQ6mE9Cap5eCSViWXEztmU=">
+            <menu:item id="i_roomentity_new" messageCode="global_menu_new" url="/roomentitys?form" z="XUC5FGQyRuY5BcYgJHme/KQrsio="/>
+            <menu:item id="i_roomentity_list" messageCode="global_menu_list" url="/roomentitys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="U8+GyoNMIF6IjailUwhUAtengd0="/>
         </menu:category>
     </menu:menu>
 </div>

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import ee.itcollege.team13.domain.House;
+import ee.itcollege.team13.domain.*;
 
 @RequestMapping("/housingreport/**")
 @Controller
@@ -25,7 +25,7 @@ public class HousingReportController {
 
     @RequestMapping
     public String index(Model uiModel) {
-    	uiModel.addAttribute("houses", House.findAllHouses());
+    	uiModel.addAttribute("roomentitys", RoomEntity.findAllRoomEntitys());
         return "housingreport/index";
     }
 }

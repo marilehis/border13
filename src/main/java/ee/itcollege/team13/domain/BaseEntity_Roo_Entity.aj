@@ -37,17 +37,6 @@ privileged aspect BaseEntity_Roo_Entity {
     }
     
     @Transactional
-    public void BaseEntity.remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        if (this.entityManager.contains(this)) {
-            this.entityManager.remove(this);
-        } else {
-            BaseEntity attached = BaseEntity.findBaseEntity(this.id);
-            this.entityManager.remove(attached);
-        }
-    }
-    
-    @Transactional
     public void BaseEntity.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
@@ -57,14 +46,6 @@ privileged aspect BaseEntity_Roo_Entity {
     public void BaseEntity.clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
-    }
-    
-    @Transactional
-    public BaseEntity BaseEntity.merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        BaseEntity merged = this.entityManager.merge(this);
-        this.entityManager.flush();
-        return merged;
     }
     
     public static final EntityManager BaseEntity.entityManager() {

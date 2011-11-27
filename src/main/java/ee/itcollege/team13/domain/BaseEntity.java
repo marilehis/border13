@@ -1,15 +1,20 @@
 package ee.itcollege.team13.domain;
 
+import java.text.DateFormat;
 import java.util.Date;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-//import javax.validation.constraints.NotNull;
+import javax.persistence.PrePersist;
+import javax.persistence.PreRemove;
+import javax.persistence.PreUpdate;
+
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @MappedSuperclass
@@ -17,28 +22,68 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooEntity(mappedSuperclass = true)
 
 public abstract class BaseEntity {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-//	@NotNull
 	String createdBy;
-	
-//	@NotNull
 	String updatedBy;
-	
-//	@NotNull
 	String deletedBy;
-	
-//	@NotNull
 	Date created;
-	
-//	@NotNull
 	Date updated;
-	
-//	@NotNull
 	Date deleted;
+
+	// TODO: muuta kasutaja andmed createdBy, updatedBy, modifiedBy
 	
+	@PrePersist
+    public void recordCreated() {
+        setCreated( new Date() );
+        setUpdated (new Date(253402207200000L));
+        setDeleted (new Date(253402207200000L));
+        setCreatedBy ("looja");
+    }
+
+    @PreUpdate
+    public void recordUpdated() {
+        setUpdated( new Date() );
+        setUpdatedBy("uuendaja");
+    }
+
+    @PreRemove
+    public void preventRemove() {
+        throw new SecurityException("Removing of records is prohibited!");
+    }
+	
+    @Transactional
+    public void remove() {
+    	setDeleted(new Date());
+    	setDeletedBy ("kustutaja");
+    	merge();
+    }
+    
+    
+    @Transactional
+    public BaseEntity merge() {
+        if (this.entityManager == null) this.entityManager = entityManager();
+        
+    	if(this.id != null && !entityManager.contains(this)) {
+    		BaseEntity oldEntity = entityManager().find(getClass(), id);
+    		if (getCreated() == null)
+    			setCreated(oldEntity.getCreated());
+    		if (getCreatedBy() == null)
+    			setCreatedBy(oldEntity.getCreatedBy());
+     		if (getDeleted() == null)
+    			setDeleted(oldEntity.getDeleted());
+    		if (getDeletedBy() == null)
+    			setDeletedBy(oldEntity.getDeletedBy());
+
+    	}
+        BaseEntity merged = this.entityManager.merge(this);
+        this.entityManager.flush();
+        return merged;
+    }
+    
 	protected String getCreatedBy() {
 		return createdBy;
 	}

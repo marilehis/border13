@@ -3,6 +3,16 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+    	
+    	<menu:category id="" label="Menüü">
+    		<menu:item id="" url="/borderguards" label="Piirivalvurid"/>
+    		<menu:item id="" url="/roomentitys" label="Ruumiüksused"/>
+    		<menu:item id="" url="/housingreport/index" label="Majutusraport"/>
+    	</menu:category>
+    	
+    	<br />
+    	<hr />
+    	genereeritud menüü... 
         <menu:category id="c_bed" z="nt8TkGpDqzAr9lu5btJB/g7b95E=">
             <menu:item id="i_bed_new" messageCode="global_menu_new" url="/beds?form" z="C03A5vUiQ3JrfaQvZXDR5b7BrUI="/>
             <menu:item id="i_bed_list" messageCode="global_menu_list" url="/beds?page=1&amp;size=${empty param.size ? 10 : param.size}" z="C57+tAB7FhgOUV0AVQKdNRGub80="/>

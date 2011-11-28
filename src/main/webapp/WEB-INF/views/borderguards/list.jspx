@@ -12,4 +12,8 @@
             <table:column id="c_ee_itcollege_team13_domain_BorderGuard_comment" property="comment" z="av0BDnw39UF9ESti1CEeyXFDyqU="/>
         </table:table>
     </page:list>
+
+	<br />
+	<a href="borderguards?form"><img src="resources/images/add.png" /> Lisa uus</a>
+	    
 </div>

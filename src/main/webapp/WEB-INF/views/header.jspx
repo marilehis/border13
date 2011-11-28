@@ -2,10 +2,10 @@
   <jsp:directive.page contentType="text/html;charset=UTF-8" />
   <jsp:output omit-xml-declaration="yes" />
 
-  <spring:url var="banner" value="/resources/images/banner-graphic.png" />
   <spring:url var="home" value="/" />
-  <spring:message code="button_home" var="home_label" htmlEscape="false" />
-  <a href="${home}" name="${fn:escapeXml(home_label)}" title="${fn:escapeXml(home_label)}">
-    <img src="${banner}" />
-  </a>
+  
+  <div style="background-color: #648C1D; padding: 20px;">
+  	<a style="color: white; font-weight: bold; font-size: 2em; text-decoration: none;" href="${home}">Piirivalve</a>
+  </div>
+
 </div> 

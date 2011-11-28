@@ -12,4 +12,6 @@
             <table:column id="c_ee_itcollege_team13_domain_RoomEntity_parentRoomEntity" property="parentRoomEntity" z="mfJ3ZZbmXRf8kNxksZMaQSMAEFM="/>
         </table:table>
     </page:list>
+    <br />
+    <a href="roomentitys/edit"><img src="resources/images/add.png" /> Lisa uus</a>
 </div>

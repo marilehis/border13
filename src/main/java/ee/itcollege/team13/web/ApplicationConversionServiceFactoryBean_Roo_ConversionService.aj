@@ -3,6 +3,7 @@
 
 package ee.itcollege.team13.web;
 
+import ee.itcollege.team13.domain.AdminUnit;
 import ee.itcollege.team13.domain.Bed;
 import ee.itcollege.team13.domain.BorderGuard;
 import ee.itcollege.team13.domain.BorderGuardInBed;
@@ -17,6 +18,7 @@ import org.springframework.format.FormatterRegistry;
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
+        registry.addConverter(new AdminUnitConverter());
         registry.addConverter(new BedConverter());
         registry.addConverter(new BorderGuardConverter());
         registry.addConverter(new BorderGuardInBedConverter());
@@ -29,6 +31,13 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {
         super.afterPropertiesSet();
         installLabelConverters(getObject());
+    }
+    
+    static class ee.itcollege.team13.web.ApplicationConversionServiceFactoryBean.AdminUnitConverter implements Converter<AdminUnit, String> {
+        public String convert(AdminUnit adminUnit) {
+            return new StringBuilder().append(adminUnit.getAdminUnitId()).append(" ").append(adminUnit.getAdminUnitName()).toString();
+        }
+        
     }
     
     static class ee.itcollege.team13.web.ApplicationConversionServiceFactoryBean.BedConverter implements Converter<Bed, String> {

@@ -11,5 +11,6 @@
         <field:select field="parentRoomEntity" id="c_ee_itcollege_team13_domain_RoomEntity_parentRoomEntity" itemValue="id" items="${roomentitys}" path="/roomentitys" z="IXqNGF3NBsPU7SmeE/Uyrdm5v0M="/>
         <field:simple field="childRoomEntitys" id="c_ee_itcollege_team13_domain_RoomEntity_childRoomEntitys" messageCode="entity_reference_not_managed" messageCodeAttribute="Room Entity" z="kEilqKsCEo3oURqx/YiznS7V7GY="/>
         <field:simple field="beds" id="c_ee_itcollege_team13_domain_RoomEntity_beds" messageCode="entity_reference_not_managed" messageCodeAttribute="Bed" z="p9SPKJ5420f3uJPSS4EVo5wPznU="/>
+        <field:select field="adminUnit" id="c_ee_itcollege_team13_domain_RoomEntity_adminUnit" itemValue="id" items="${adminunits}" path="/adminunits" z="IIZnpWgeHP2SnAgUosHRfVRlI/c="/>
     </form:update>
 </div>

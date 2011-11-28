@@ -10,6 +10,7 @@ privileged aspect RoomEntity_Roo_ToString {
     public String RoomEntity.toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Address: ").append(getAddress()).append(", ");
+        sb.append("AdminUnit: ").append(getAdminUnit()).append(", ");
         sb.append("Beds: ").append(getBeds() == null ? "null" : getBeds().size()).append(", ");
         sb.append("ChildRoomEntitys: ").append(getChildRoomEntitys() == null ? "null" : getChildRoomEntitys().size()).append(", ");
         sb.append("Comment: ").append(getComment()).append(", ");

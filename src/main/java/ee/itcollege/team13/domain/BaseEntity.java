@@ -1,6 +1,6 @@
 package ee.itcollege.team13.domain;
 
-import java.text.DateFormat;
+
 import java.util.Date;
 
 import javax.persistence.GeneratedValue;

@@ -3,6 +3,7 @@
 
 package ee.itcollege.team13.web;
 
+import ee.itcollege.team13.domain.AdminUnit;
 import ee.itcollege.team13.domain.Bed;
 import ee.itcollege.team13.domain.RoomEntity;
 import ee.itcollege.team13.domain.RoomType;
@@ -86,6 +87,11 @@ privileged aspect RoomEntityController_Roo_Controller {
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
         return "redirect:/roomentitys";
+    }
+    
+    @ModelAttribute("adminunits")
+    public Collection<AdminUnit> RoomEntityController.populateAdminUnits() {
+        return AdminUnit.findAllAdminUnits();
     }
     
     @ModelAttribute("beds")

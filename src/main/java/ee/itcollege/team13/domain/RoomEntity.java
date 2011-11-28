@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-import ee.itcollege.team13.domain.Bed;
+import ee.itcollege.team13.domain.AdminUnit;
 
 /**
  * Entity implementation class for Entity: RoomEntity
@@ -45,6 +45,9 @@ public class RoomEntity extends BaseEntity implements Serializable {
 
 	@OneToMany(mappedBy = "roomEntity")
 	private Collection<Bed> beds;
+
+	@ManyToOne
+	private AdminUnit adminUnit;
 
 	public RoomEntity() {
 		super();
@@ -99,6 +102,12 @@ public class RoomEntity extends BaseEntity implements Serializable {
 	}
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+	public AdminUnit getAdminUnit() {
+	    return adminUnit;
+	}
+	public void setAdminUnit(AdminUnit param) {
+	    this.adminUnit = param;
 	}
 
 

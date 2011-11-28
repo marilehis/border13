@@ -35,7 +35,7 @@
 	<entity>
 		<entity-name>ee.itcollege.team13.domain.RoomEntity</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>228</entity-height>
+		<entity-height>248</entity-height>
 		<entity-X-Coordinate>360</entity-X-Coordinate>
 		<entity-Y-Coordinate>592</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
@@ -71,6 +71,17 @@
 		<entity-height>148</entity-height>
 		<entity-X-Coordinate>50</entity-X-Coordinate>
 		<entity-Y-Coordinate>588</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>ee.itcollege.team13.domain.AdminUnit</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>128</entity-height>
+		<entity-X-Coordinate>669</entity-X-Coordinate>
+		<entity-Y-Coordinate>617</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>

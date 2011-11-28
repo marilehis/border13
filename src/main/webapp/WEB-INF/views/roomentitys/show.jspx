@@ -9,5 +9,6 @@
         <field:display field="comment" id="s_ee_itcollege_team13_domain_RoomEntity_comment" object="${roomentity}" z="Q+xtainuc9icS/2zCOp6HSCeqSg="/>
         <field:display field="roomType" id="s_ee_itcollege_team13_domain_RoomEntity_roomType" object="${roomentity}" z="Z8qNq9gnHSX+iAKrNVlKCdM1rwg="/>
         <field:display field="parentRoomEntity" id="s_ee_itcollege_team13_domain_RoomEntity_parentRoomEntity" object="${roomentity}" z="zA+PFRHu2CTkfLt67runG0/b2Tk="/>
+        <field:display field="adminUnit" id="s_ee_itcollege_team13_domain_RoomEntity_adminUnit" object="${roomentity}" z="Lb0Z6RFtrQhQnO6CxA2Q9UbykY0="/>
     </page:show>
 </div>

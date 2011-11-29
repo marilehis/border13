@@ -9,7 +9,6 @@ import ee.itcollege.team13.domain.BorderGuard;
 import ee.itcollege.team13.domain.BorderGuardInBed;
 import ee.itcollege.team13.domain.BorderGuardInCompany;
 import ee.itcollege.team13.domain.Company;
-import ee.itcollege.team13.domain.RoomEntity;
 import ee.itcollege.team13.domain.RoomType;
 import java.lang.String;
 import org.springframework.core.convert.converter.Converter;
@@ -24,7 +23,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(new BorderGuardInBedConverter());
         registry.addConverter(new BorderGuardInCompanyConverter());
         registry.addConverter(new CompanyConverter());
-        registry.addConverter(new RoomEntityConverter());
         registry.addConverter(new RoomTypeConverter());
     }
     
@@ -71,13 +69,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     static class ee.itcollege.team13.web.ApplicationConversionServiceFactoryBean.CompanyConverter implements Converter<Company, String> {
         public String convert(Company company) {
             return new StringBuilder().append(company.getCompanyID()).append(" ").append(company.getName()).toString();
-        }
-        
-    }
-    
-    static class ee.itcollege.team13.web.ApplicationConversionServiceFactoryBean.RoomEntityConverter implements Converter<RoomEntity, String> {
-        public String convert(RoomEntity roomEntity) {
-            return new StringBuilder().append(roomEntity.getRoomEntityId()).append(" ").append(roomEntity.getName()).append(" ").append(roomEntity.getAddress()).append(" ").append(roomEntity.getComment()).toString();
         }
         
     }

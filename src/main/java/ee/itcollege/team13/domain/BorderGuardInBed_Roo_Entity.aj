@@ -5,25 +5,12 @@ package ee.itcollege.team13.domain;
 
 import ee.itcollege.team13.domain.BorderGuardInBed;
 import java.lang.Long;
-import java.util.List;
 
 privileged aspect BorderGuardInBed_Roo_Entity {
-    
-    public static long BorderGuardInBed.countBorderGuardInBeds() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM BorderGuardInBed o", Long.class).getSingleResult();
-    }
-    
-    public static List<BorderGuardInBed> BorderGuardInBed.findAllBorderGuardInBeds() {
-        return entityManager().createQuery("SELECT o FROM BorderGuardInBed o", BorderGuardInBed.class).getResultList();
-    }
     
     public static BorderGuardInBed BorderGuardInBed.findBorderGuardInBed(Long id) {
         if (id == null) return null;
         return entityManager().find(BorderGuardInBed.class, id);
-    }
-    
-    public static List<BorderGuardInBed> BorderGuardInBed.findBorderGuardInBedEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM BorderGuardInBed o", BorderGuardInBed.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }

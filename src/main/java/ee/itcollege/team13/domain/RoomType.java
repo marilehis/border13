@@ -36,6 +36,18 @@ public class RoomType extends BaseEntity implements Serializable {
 
 	
 	
+    public static long countRoomTypes() {
+        return entityManager().createQuery("SELECT COUNT(o) FROM RoomType o WHERE o.deleted > :ed", Long.class).setParameter("ed", effectiveDate()).getSingleResult();
+    }
+    
+    public static List<RoomType> findAllRoomTypes() {
+        return entityManager().createQuery("SELECT o FROM RoomType o WHERE o.deleted > :ed", RoomType.class).setParameter("ed", effectiveDate()).getResultList();
+    }
+	
+    public static List<RoomType> findRoomTypeEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM RoomType o WHERE o.deleted > :ed", RoomType.class).setParameter("ed", effectiveDate()).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
 	public String getRoomTypeId() {
 		return roomTypeId;
 	}

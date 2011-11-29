@@ -34,13 +34,23 @@ public abstract class BaseEntity {
 	Date updated;
 	Date deleted;
 
+	
+	// 9999-12-31
+	protected static final Date notDeleted = new Date(253402207200000L);
+	
+	protected static  Date effectiveDate() {
+		
+		return new Date();
+		
+	}
+	
 	// TODO: muuta kasutaja andmed createdBy, updatedBy, modifiedBy
 	
 	@PrePersist
     public void recordCreated() {
         setCreated( new Date() );
-        setUpdated (new Date(253402207200000L));
-        setDeleted (new Date(253402207200000L));
+        setUpdated (notDeleted);
+        setDeleted (notDeleted);
         setCreatedBy ("looja");
     }
 

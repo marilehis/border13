@@ -2,6 +2,7 @@ package ee.itcollege.team13.domain;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -14,26 +15,24 @@ import javax.persistence.ManyToOne;
 
 /**
  * Entity implementation class for Entity: Bed
- *
+ * 
  */
 @Entity
 @RooToString
 @RooEntity
-
 public class Bed extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@NotNull
 	private String bedId;
-	
+
 	@NotNull
 	private int length;
-	
+
 	@NotNull
 	private int width;
-	
+
 	private String comment;
-	
 
 	@OneToMany(mappedBy = "bed")
 	private Collection<BorderGuardInBed> borderGuardsInBed;
@@ -43,28 +42,55 @@ public class Bed extends BaseEntity implements Serializable {
 
 	public Bed() {
 		super();
-	}   
+	}
+
+	public static long countBeds() {
+		return entityManager()
+				.createQuery(
+						"SELECT COUNT(o) FROM Bed o WHERE o.deleted > :ed",
+						Long.class).setParameter("ed", effectiveDate())
+				.getSingleResult();
+	}
+
+	public static List<Bed> findAllBeds() {
+		return entityManager()
+				.createQuery("SELECT o FROM Bed o WHERE o.deleted > :ed",
+						Bed.class).setParameter("ed", effectiveDate())
+				.getResultList();
+	}
+
+	public static List<Bed> findBedEntries(int firstResult, int maxResults) {
+		return entityManager()
+				.createQuery("SELECT o FROM Bed o WHERE o.deleted > :ed",
+						Bed.class).setParameter("ed", effectiveDate())
+				.setFirstResult(firstResult).setMaxResults(maxResults)
+				.getResultList();
+	}
+
 	public String getBedId() {
 		return this.bedId;
 	}
 
 	public void setBedId(String bedId) {
 		this.bedId = bedId;
-	}   
+	}
+
 	public int getLength() {
 		return this.length;
 	}
 
 	public void setLength(int length) {
 		this.length = length;
-	}   
+	}
+
 	public int getWidth() {
 		return this.width;
 	}
 
 	public void setWidth(int width) {
 		this.width = width;
-	}   
+	}
+
 	public String getComment() {
 		return this.comment;
 	}
@@ -72,17 +98,21 @@ public class Bed extends BaseEntity implements Serializable {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+
 	public Collection<BorderGuardInBed> getBorderGuardsInBed() {
-	    return borderGuardsInBed;
+		return borderGuardsInBed;
 	}
+
 	public void setBorderGuardsInBed(Collection<BorderGuardInBed> param) {
-	    this.borderGuardsInBed = param;
+		this.borderGuardsInBed = param;
 	}
+
 	public RoomEntity getRoomEntity() {
-	    return roomEntity;
+		return roomEntity;
 	}
+
 	public void setRoomEntity(RoomEntity param) {
-	    this.roomEntity = param;
+		this.roomEntity = param;
 	}
-   
+
 }

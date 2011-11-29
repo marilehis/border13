@@ -15,30 +15,50 @@ import javax.persistence.OneToMany;
 
 /**
  * Entity implementation class for Entity: AdminUnit
- *
+ * 
  */
 @Entity
 @RooToString
 @RooEntity
-
 public class AdminUnit extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	
 	@NotNull
 	private String adminUnitId;
-	
+
 	@NotNull
 	private String adminUnitName;
-
 
 	@OneToMany(mappedBy = "adminUnit")
 	private Collection<RoomEntity> roomEntitys;
 
-
 	public AdminUnit() {
 		super();
+	}
+
+	public static long countAdminUnits() {
+		return entityManager()
+				.createQuery(
+						"SELECT COUNT(o) FROM AdminUnit o WHERE o.deleted > :ed",
+						Long.class).setParameter("ed", effectiveDate())
+				.getSingleResult();
+	}
+
+	public static List<AdminUnit> findAllAdminUnits() {
+		return entityManager()
+				.createQuery("SELECT o FROM AdminUnit o WHERE o.deleted > :ed",
+						AdminUnit.class).setParameter("ed", effectiveDate())
+				.getResultList();
+	}
+
+	public static List<AdminUnit> findAdminUnitEntries(int firstResult,
+			int maxResults) {
+		return entityManager()
+				.createQuery("SELECT o FROM AdminUnit o WHERE o.deleted > :ed",
+						AdminUnit.class).setParameter("ed", effectiveDate())
+				.setFirstResult(firstResult).setMaxResults(maxResults)
+				.getResultList();
 	}
 
 	public String getAdminUnitId() {
@@ -58,14 +78,11 @@ public class AdminUnit extends BaseEntity implements Serializable {
 	}
 
 	public Collection<RoomEntity> getRoomEntitys() {
-	    return roomEntitys;
+		return roomEntitys;
 	}
 
 	public void setRoomEntitys(Collection<RoomEntity> param) {
-	    this.roomEntitys = param;
+		this.roomEntitys = param;
 	}
-	
 
-
-   
 }

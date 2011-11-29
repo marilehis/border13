@@ -5,25 +5,12 @@ package ee.itcollege.team13.domain;
 
 import ee.itcollege.team13.domain.AdminUnit;
 import java.lang.Long;
-import java.util.List;
 
 privileged aspect AdminUnit_Roo_Entity {
-    
-    public static long AdminUnit.countAdminUnits() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM AdminUnit o", Long.class).getSingleResult();
-    }
-    
-    public static List<AdminUnit> AdminUnit.findAllAdminUnits() {
-        return entityManager().createQuery("SELECT o FROM AdminUnit o", AdminUnit.class).getResultList();
-    }
     
     public static AdminUnit AdminUnit.findAdminUnit(Long id) {
         if (id == null) return null;
         return entityManager().find(AdminUnit.class, id);
-    }
-    
-    public static List<AdminUnit> AdminUnit.findAdminUnitEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM AdminUnit o", AdminUnit.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }

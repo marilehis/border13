@@ -5,25 +5,12 @@ package ee.itcollege.team13.domain;
 
 import ee.itcollege.team13.domain.RoomEntity;
 import java.lang.Long;
-import java.util.List;
 
 privileged aspect RoomEntity_Roo_Entity {
-    
-    public static long RoomEntity.countRoomEntitys() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM RoomEntity o", Long.class).getSingleResult();
-    }
-    
-    public static List<RoomEntity> RoomEntity.findAllRoomEntitys() {
-        return entityManager().createQuery("SELECT o FROM RoomEntity o", RoomEntity.class).getResultList();
-    }
     
     public static RoomEntity RoomEntity.findRoomEntity(Long id) {
         if (id == null) return null;
         return entityManager().find(RoomEntity.class, id);
-    }
-    
-    public static List<RoomEntity> RoomEntity.findRoomEntityEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM RoomEntity o", RoomEntity.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }

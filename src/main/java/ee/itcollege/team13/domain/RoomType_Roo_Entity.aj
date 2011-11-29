@@ -5,25 +5,12 @@ package ee.itcollege.team13.domain;
 
 import ee.itcollege.team13.domain.RoomType;
 import java.lang.Long;
-import java.util.List;
 
 privileged aspect RoomType_Roo_Entity {
-    
-    public static long RoomType.countRoomTypes() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM RoomType o", Long.class).getSingleResult();
-    }
-    
-    public static List<RoomType> RoomType.findAllRoomTypes() {
-        return entityManager().createQuery("SELECT o FROM RoomType o", RoomType.class).getResultList();
-    }
     
     public static RoomType RoomType.findRoomType(Long id) {
         if (id == null) return null;
         return entityManager().find(RoomType.class, id);
-    }
-    
-    public static List<RoomType> RoomType.findRoomTypeEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM RoomType o", RoomType.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }

@@ -2,6 +2,7 @@ package ee.itcollege.team13.domain;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -19,6 +20,7 @@ import ee.itcollege.team13.domain.RoomEntity;
 @RooEntity
 
 public class RoomType extends BaseEntity implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	
 	@NotNull
@@ -66,7 +68,14 @@ public class RoomType extends BaseEntity implements Serializable {
 	    this.roomEntitys = param;
 	}
 
-
-
-   
+	public static RoomType findRoomTypeByIdString(String id) {
+        List<RoomType> resultList = entityManager()
+        		.createQuery("SELECT o FROM RoomType o WHERE o.roomTypeId = :typeId", RoomType.class)
+        		.setParameter("typeId", id)
+        		.getResultList();
+        if (resultList != null && resultList.size() == 1) {
+        	return resultList.get(0);
+        }
+        throw new RuntimeException("FAIL");
+    }   
 }

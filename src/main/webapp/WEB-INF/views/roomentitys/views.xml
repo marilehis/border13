@@ -4,13 +4,7 @@
     <definition extends="default" name="roomentitys/list">
         <put-attribute name="body" value="/WEB-INF/views/roomentitys/list.jspx"/>
     </definition>
-<definition extends="default" name="roomentitys/show">
-        <put-attribute name="body" value="/WEB-INF/views/roomentitys/show.jspx"/>
-    </definition>
-<definition extends="default" name="roomentitys/create">
-        <put-attribute name="body" value="/WEB-INF/views/roomentitys/create.jspx"/>
-    </definition>
-<definition extends="default" name="roomentitys/update">
-        <put-attribute name="body" value="/WEB-INF/views/roomentitys/update.jspx"/>
+	<definition extends="default" name="roomentitys/edit">
+        <put-attribute name="body" value="/WEB-INF/views/roomentitys/edit.jspx"/>
     </definition>
 </tiles-definitions>

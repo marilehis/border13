@@ -9,6 +9,8 @@ import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 import ee.itcollege.team13.domain.RoomEntity;
 import java.util.Collection;
+import java.util.List;
+
 import javax.persistence.OneToMany;
 
 /**
@@ -21,7 +23,6 @@ import javax.persistence.OneToMany;
 
 public class AdminUnit extends BaseEntity implements Serializable {
 
-	
 	private static final long serialVersionUID = 1L;
 
 	
@@ -64,6 +65,9 @@ public class AdminUnit extends BaseEntity implements Serializable {
 	    this.roomEntitys = param;
 	}
 	
-	
+
+	public static List<AdminUnit> findAllAdminUnits() {
+        return entityManager().createQuery("SELECT o FROM AdminUnit o", AdminUnit.class).getResultList();
+    }
    
 }

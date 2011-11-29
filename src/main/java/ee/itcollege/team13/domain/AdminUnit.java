@@ -51,6 +51,7 @@ public class AdminUnit extends BaseEntity implements Serializable {
 						AdminUnit.class).setParameter("ed", effectiveDate())
 				.getResultList();
 	}
+	
 
 	public static List<AdminUnit> findAdminUnitEntries(int firstResult,
 			int maxResults) {
@@ -84,5 +85,7 @@ public class AdminUnit extends BaseEntity implements Serializable {
 	public void setRoomEntitys(Collection<RoomEntity> param) {
 		this.roomEntitys = param;
 	}
+
+
 
 }

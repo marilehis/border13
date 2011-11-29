@@ -1,11 +1,13 @@
 package ee.itcollege.team13.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Query;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
@@ -114,5 +116,15 @@ public class Bed extends BaseEntity implements Serializable {
 	public void setRoomEntity(RoomEntity param) {
 		this.roomEntity = param;
 	}
+
+	
+    public static List<Bed> findAllBedsInRoom(Long id) {
+    	List<Bed> bedsInRoom = new ArrayList<Bed>();
+    	Query q = entityManager().createQuery("SELECT o FROM Bed o WHERE o.roomentity= :id");
+    	q.setParameter("id",id);
+    	bedsInRoom = q.getResultList();
+        return bedsInRoom;
+    }
+   
 
 }

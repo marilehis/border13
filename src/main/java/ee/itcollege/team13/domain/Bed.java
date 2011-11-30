@@ -92,11 +92,14 @@ public class Bed extends BaseEntity implements Serializable {
     	List<Bed> bedsInRoom = new ArrayList<Bed>();
     	System.out.println(roomId.toString());
     	Query q = entityManager().createQuery(
-    			"SELECT * FROM Bed AS b " +
-    			"JOIN b.boarderguardinbed AS bg " +
-    			"WHERE b.roomentity= :roomid && (bg.borderguard= :bgid || bg.borderguard= :''");
+    			"SELECT b FROM Bed b " +
+    			"JOIN b.boarderguardinbed bg " +
+    			"WHERE b.roomentity= :roomid AND (bg.borderguard= :bgid OR bg.borderguard= :empty" +
+    			"ORDER BY bg.borderguard");
     	q.setParameter("roomid",roomId);
     	q.setParameter("bgid",bgId);
+    	q.setParameter("empty", "");
+    	
     	bedsInRoom = q.getResultList();
     	return bedsInRoom;
     }

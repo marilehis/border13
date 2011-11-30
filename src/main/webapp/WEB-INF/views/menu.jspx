@@ -10,13 +10,7 @@
     		<menu:item id="" url="/housingreport/index" label="Majutusraport"/>
     	</menu:category>
     	
-    	<br />
-    	<hr />
-    	genereeritud menüü... 
-        <menu:category id="c_bed" z="nt8TkGpDqzAr9lu5btJB/g7b95E=">
-            <menu:item id="i_bed_new" messageCode="global_menu_new" url="/beds?form" z="C03A5vUiQ3JrfaQvZXDR5b7BrUI="/>
-            <menu:item id="i_bed_list" messageCode="global_menu_list" url="/beds?page=1&amp;size=${empty param.size ? 10 : param.size}" z="C57+tAB7FhgOUV0AVQKdNRGub80="/>
-        </menu:category>
+    	<br /><hr /><br />
         <menu:category id="c_company" z="tmJjNcrRZwdZqruFqwG+TB5GMek=">
             <menu:item id="i_company_new" messageCode="global_menu_new" url="/companys?form" z="SWjXbZ96+4L3yJZ+Q7yyqEFQPV4="/>
             <menu:item id="i_company_list" messageCode="global_menu_list" url="/companys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="vk1qspgPYbGCO4tYu2Ikm8DhmbY="/>

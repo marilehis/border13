@@ -24,6 +24,7 @@ public class RoomType extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@NotNull
+	
 	private String roomTypeId;
 	
 	@NotNull

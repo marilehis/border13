@@ -39,9 +39,9 @@ public abstract class BaseEntity {
 	@PrePersist
     public void recordCreated() {
         setCreated( new Date() );
-        setUpdated (new Date(253402207200000L));
-        setDeleted (new Date(253402207200000L));
-        setCreatedBy ("looja");
+        setUpdated(new Date(253402207200000L));
+        setDeleted(new Date(253402207200000L));
+        setCreatedBy("looja");
     }
 
     @PreUpdate
@@ -62,11 +62,10 @@ public abstract class BaseEntity {
     	merge();
     }
     
-    
     @Transactional
     public BaseEntity merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
-        
+
     	if(this.id != null && !entityManager.contains(this)) {
     		BaseEntity oldEntity = entityManager().find(getClass(), id);
     		if (getCreated() == null)
@@ -77,7 +76,6 @@ public abstract class BaseEntity {
     			setDeleted(oldEntity.getDeleted());
     		if (getDeletedBy() == null)
     			setDeletedBy(oldEntity.getDeletedBy());
-
     	}
         BaseEntity merged = this.entityManager.merge(this);
         this.entityManager.flush();

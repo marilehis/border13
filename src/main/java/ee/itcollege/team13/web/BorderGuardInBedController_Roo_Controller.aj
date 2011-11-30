@@ -106,10 +106,10 @@ privileged aspect BorderGuardInBedController_Roo_Controller {
         return "redirect:/borderguardinbeds";
     }
     
-    @ModelAttribute("beds")
+    /*@ModelAttribute("beds")
     public Collection<Bed> BorderGuardInBedController.populateBeds() {
         return Bed.findAllBeds();
-    }
+    }*/
     
     @ModelAttribute("borderguards")
     public Collection<BorderGuard> BorderGuardInBedController.populateBorderGuards() {

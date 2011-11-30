@@ -4,13 +4,7 @@
     <definition extends="default" name="beds/list">
         <put-attribute name="body" value="/WEB-INF/views/beds/list.jspx"/>
     </definition>
-<definition extends="default" name="beds/show">
-        <put-attribute name="body" value="/WEB-INF/views/beds/show.jspx"/>
-    </definition>
-<definition extends="default" name="beds/create">
-        <put-attribute name="body" value="/WEB-INF/views/beds/create.jspx"/>
-    </definition>
-<definition extends="default" name="beds/update">
-        <put-attribute name="body" value="/WEB-INF/views/beds/update.jspx"/>
+	<definition extends="default" name="beds/edit">
+        <put-attribute name="body" value="/WEB-INF/views/beds/edit.jspx"/>
     </definition>
 </tiles-definitions>

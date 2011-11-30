@@ -2,6 +2,7 @@ package ee.itcollege.team13.domain;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -33,7 +34,6 @@ public class Bed extends BaseEntity implements Serializable {
 	private int width;
 	
 	private String comment;
-	
 
 	@OneToMany(mappedBy = "bed")
 	private Collection<BorderGuardInBed> borderGuardsInBed;
@@ -84,5 +84,12 @@ public class Bed extends BaseEntity implements Serializable {
 	public void setRoomEntity(RoomEntity param) {
 	    this.roomEntity = param;
 	}
-   
+
+    public static List<Bed> findBedsForRoomEntity(RoomEntity room) {
+        return entityManager()
+    		.createQuery("SELECT o FROM Bed o WHERE o.deleted > NOW() AND o.roomEntity = :room", Bed.class)
+    		.setParameter("room", room)
+    		.getResultList()
+		;
+    }
 }

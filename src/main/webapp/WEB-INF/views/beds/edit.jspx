@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" 
+	 xmlns:form="http://www.springframework.org/tags/form" 
+	 xmlns:jsp="http://java.sun.com/JSP/Page" 
+	 xmlns:spring="http://www.springframework.org/tags"
+	 version="2.0">
+
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    
+    <form:errors />
+    
+    <spring:url value="/beds/edit" var="action" />
+    
+    <form:form action="${action}" commandName="bed" method="post">
+    	<form:hidden path="id" />
+    	<form:hidden path="version" />
+    	<form:hidden path="roomEntity.id"/>
+    	<p>
+    		<label>Ruumiüksus:</label>
+    		<div><b>${bed.roomEntity.name}</b></div>
+    	</p>
+    	<p>
+    		<label>Id:</label>
+    		<form:input path="bedId" />
+    	</p>
+    	<p>
+    		<label>Pikkus:</label>
+    		<form:input path="length" />
+    	</p>
+    	<p>
+    		<label>Laius:</label>
+    		<form:input path="width" />
+    	</p>
+    	<p>
+    		<label>Kommentaar:</label>
+    		<form:textarea path="comment" />
+    	</p>
+    	<p style="text-align: right;">
+    		<input type="submit" value="Salvesta" />
+    	</p>
+    </form:form>
+</div>

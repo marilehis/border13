@@ -1,15 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+	 xmlns:c="http://java.sun.com/jsp/jstl/core" 
+	 xmlns:spring="http://www.springframework.org/tags"
+	 version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_ee_itcollege_team13_domain_Bed" items="${beds}" z="CKA/kyiJYR8eIEZwGmwRXalG4nQ=">
-        <table:table data="${beds}" id="l_ee_itcollege_team13_domain_Bed" path="/beds" z="iiEdPYasfOK+EGuUxtQfQw5Ml5k=">
-            <table:column id="c_ee_itcollege_team13_domain_Bed_bedId" property="bedId" z="dJqd5t1htTb7OLC7u9ItlLqMaig="/>
-            <table:column id="c_ee_itcollege_team13_domain_Bed_length" property="length" z="IzNVv8y8udkj11i1pH9biusgTD4="/>
-            <table:column id="c_ee_itcollege_team13_domain_Bed_width" property="width" z="oklDGmqOaHqPtqBWT6KTGF1gP8I="/>
-            <table:column id="c_ee_itcollege_team13_domain_Bed_comment" property="comment" z="lT6jeqHvmsAFkrrw+1Deq0OYH4w="/>
-            <table:column id="c_ee_itcollege_team13_domain_Bed_borderGuardsInBed" property="borderGuardsInBed" z="JcPplYHhjVZFtd91XTurd+Ut0Fs="/>
-            <table:column id="c_ee_itcollege_team13_domain_Bed_roomEntity" property="roomEntity" z="i3xHqaIayiQS63uJ4sjgoXTeCCs="/>
-        </table:table>
-    </page:list>
+    
+    <spring:url value="/roomentitys/edit?id=${roomEntity.id}" var="entityUrl" />
+    <spring:url value="/resources/images" var="img" />
+    
+    <p>
+    	Voodid ruumiüksuses <a href="${entityUrl}">${roomEntity.name}</a>
+    </p>
+    
+    <table>
+    	<thead><tr>
+    		<td>Id</td>
+    		<td>Length</td>
+    		<td>Width</td>
+    		<td>Comment</td>
+    		<td></td>
+    	</tr></thead>
+    	
+    	<c:forEach items="${beds}" var="b">
+    		<tr>
+    			<td>{b.bedId}</td>
+    			<td>{b.length}</td>
+    			<td>{b.width}</td>
+    			<td>{b.comment}</td>
+    			<td></td>
+    		</tr>
+    	</c:forEach>
+    	
+    	<tr>
+    	  <td colspan="5">
+			<spring:url value="/beds/edit?parentId=${roomEntity.id}" var="newUrl" />
+			<a href="${newUrl}"><img src="${img}/add.png" /> Lisa uus</a>
+    	  </td>
+    	</tr>
+    </table>
+    
 </div>

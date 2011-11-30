@@ -14,7 +14,7 @@ privileged aspect Bed_Roo_Entity {
     }
     
     public static List<Bed> Bed.findAllBeds() {
-        return entityManager().createQuery("SELECT o FROM Bed o", Bed.class).getResultList();
+        return entityManager().createQuery("SELECT o FROM Bed o WHERE o.deleted > NOW()", Bed.class).getResultList();
     }
     
     public static Bed Bed.findBed(Long id) {

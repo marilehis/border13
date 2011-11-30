@@ -13,10 +13,6 @@ privileged aspect RoomEntity_Roo_Entity {
         return entityManager().createQuery("SELECT COUNT(o) FROM RoomEntity o", Long.class).getSingleResult();
     }
     
-    public static List<RoomEntity> RoomEntity.findAllRoomEntitys() {
-        return entityManager().createQuery("SELECT o FROM RoomEntity o", RoomEntity.class).getResultList();
-    }
-    
     public static RoomEntity RoomEntity.findRoomEntity(Long id) {
         if (id == null) return null;
         return entityManager().find(RoomEntity.class, id);

@@ -178,7 +178,6 @@ h4 {
 	color: red;
 	font-weight: bold;
 	display: block;
-	margin-left: 105px;
 }
 
 a {
@@ -370,4 +369,21 @@ fieldset th {
 .flag {
 	height: 11px;
 	width: 16px;
+}
+
+.layoutTable {
+  border: 0px;
+}
+
+.layoutTable td {
+	vertical-align: top;
+  border: 0px;
+  padding: 5px;
+}
+.layoutTable tr:nth-child(even) {
+  background-color: white !important;
+}
+button {
+  border: 1px solid #B3B3B3;
+  background-color: buttonface;
 }

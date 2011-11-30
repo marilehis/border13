@@ -2,14 +2,20 @@ package ee.itcollege.team13.domain;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.transaction.annotation.Transactional;
+
 import ee.itcollege.team13.domain.AdminUnit;
 
 /**
@@ -19,7 +25,6 @@ import ee.itcollege.team13.domain.AdminUnit;
 @Entity
 @RooToString
 @RooEntity
-
 public class RoomEntity extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -97,6 +102,10 @@ public class RoomEntity extends BaseEntity implements Serializable {
 	public Collection<Bed> getBeds() {
 	    return beds;
 	}
+	public int getBedCount() {
+		return beds != null ? beds.size() : 0;
+	}
+	
 	public void setBeds(Collection<Bed> param) {
 	    this.beds = param;
 	}
@@ -109,10 +118,20 @@ public class RoomEntity extends BaseEntity implements Serializable {
 	public void setAdminUnit(AdminUnit param) {
 	    this.adminUnit = param;
 	}
+	
+	@Transactional
+    public void remove() {
+    	super.remove();
+    	for (RoomEntity room : this.getChildRoomEntitys()) {
+			room.remove();
+		}
+    }
 
-
-
-
-	}
-   
-
+	public static List<RoomEntity> findAllRoomEntitys() {
+        return entityManager()
+        		.createQuery("SELECT o FROM RoomEntity o WHERE o.deleted > NOW()", RoomEntity.class)
+        		.getResultList()
+		;
+    }
+	
+}

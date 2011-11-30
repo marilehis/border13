@@ -1,8 +1,11 @@
 package ee.itcollege.team13.domain;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.Query;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
@@ -75,6 +78,17 @@ public class BorderGuardInBed extends BaseEntity implements Serializable {
 	}
 	public void setBorderGuard(BorderGuard param) {
 	    this.borderGuard = param;
+	}
+	
+	public List<Bed> getBGCurrentBed(Long id){
+		Date today = Calendar.getInstance().getTime();
+		
+		Query q = entityManager().createQuery(
+				"SELECT bed FROM BorderGuardInBed WHERE borderGuard = :id && endDate > :today");
+			q.setParameter("id", id);
+			q.setParameter("today", today);
+			
+			return q.getResultList();
 	}
    
 }

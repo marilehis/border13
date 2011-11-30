@@ -65,7 +65,8 @@ public class AdminUnit extends BaseEntity implements Serializable {
 	    this.roomEntitys = param;
 	}
 	
+	/*public static List<AdminUnit> findAllAdminUnits(){
+		return entityManager().createQuery("SELECT o FROM adminunit", AdminUnit.class).getResultList();
+	}*/
 
-
-   
 }

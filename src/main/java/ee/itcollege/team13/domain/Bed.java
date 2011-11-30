@@ -3,6 +3,7 @@ package ee.itcollege.team13.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -12,6 +13,8 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.transaction.annotation.Transactional;
+
 import ee.itcollege.team13.domain.RoomEntity;
 import javax.persistence.ManyToOne;
 
@@ -68,6 +71,20 @@ public class Bed extends BaseEntity implements Serializable {
 				.setFirstResult(firstResult).setMaxResults(maxResults)
 				.getResultList();
 	}
+	
+	  @Override
+		@Transactional
+		public void remove() {
+
+		Collection<BorderGuardInBed> b = getBorderGuardsInBed();
+
+			if (b != null)
+				for (BorderGuardInBed i : b)
+					i.setEndDate(new Date());
+
+			super.remove();
+
+		}
 
 	public String getBedId() {
 		return this.bedId;
@@ -136,6 +153,6 @@ public class Bed extends BaseEntity implements Serializable {
     	bedsInRoom = q.getResultList();
         return bedsInRoom;
     }
-   
+  
 
 }

@@ -2,6 +2,7 @@ package ee.itcollege.team13.domain;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,6 +12,8 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.transaction.annotation.Transactional;
+
 import ee.itcollege.team13.domain.AdminUnit;
 
 /**
@@ -79,6 +82,26 @@ public class RoomEntity extends BaseEntity implements Serializable {
 				.getResultList();
 	}
 
+	
+    @Override
+	@Transactional
+	public void remove() {
+
+	Collection<Bed> b = getBeds();
+Collection<RoomEntity> r = getChildRoomEntitys();
+	
+		if (b != null)
+			for (Bed i : b)
+				i.setRoomEntity(null);
+		
+		if (r != null)
+			for (RoomEntity i : r)
+				i.setParentRoomEntity(null);
+
+		super.remove();
+
+	}
+	
 	public String getRoomEntityId() {
 		return this.roomEntityId;
 	}

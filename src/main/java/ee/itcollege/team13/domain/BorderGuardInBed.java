@@ -30,7 +30,7 @@ public class BorderGuardInBed extends BaseEntity implements Serializable {
 
 	@NotNull
 	@DateTimeFormat(style = "M-")
-	private Date endDate;
+	private Date endDate = notDeleted;
 
 	private String comment;
 

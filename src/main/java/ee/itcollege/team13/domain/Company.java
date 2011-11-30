@@ -2,6 +2,7 @@ package ee.itcollege.team13.domain;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Entity implementation class for Entity: Company
@@ -63,6 +65,20 @@ public class Company extends BaseEntity implements Serializable {
 
 	}
 
+	  @Override
+		@Transactional
+		public void remove() {
+
+		Collection<BorderGuardInCompany> b = getBorderGuardsInCompany();
+
+			if (b != null)
+				for (BorderGuardInCompany i : b)
+					i.setEndDate(new Date());
+
+			super.remove();
+
+		}
+	
 	public String getCompanyID() {
 		return this.companyID;
 	}

@@ -2,6 +2,7 @@ package ee.itcollege.team13.domain;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -10,6 +11,8 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.transaction.annotation.Transactional;
+
 import ee.itcollege.team13.domain.RoomEntity;
 
 /**
@@ -47,6 +50,21 @@ public class RoomType extends BaseEntity implements Serializable {
     public static List<RoomType> findRoomTypeEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM RoomType o WHERE o.deleted > :ed", RoomType.class).setParameter("ed", effectiveDate()).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
+    
+    @Override
+	@Transactional
+	public void remove() {
+
+	Collection<RoomEntity> r = getRoomEntitys();
+
+		if (r != null)
+			for (RoomEntity i : r)
+				i.setRoomType(null);
+
+		super.remove();
+
+	}
+    
     
 	public String getRoomTypeId() {
 		return roomTypeId;

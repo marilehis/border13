@@ -7,8 +7,11 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.transaction.annotation.Transactional;
+
 import ee.itcollege.team13.domain.RoomEntity;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.OneToMany;
@@ -61,6 +64,20 @@ public class AdminUnit extends BaseEntity implements Serializable {
 				.setFirstResult(firstResult).setMaxResults(maxResults)
 				.getResultList();
 	}
+	
+	   @Override
+		@Transactional
+		public void remove() {
+
+		Collection<RoomEntity> r = getRoomEntitys();
+
+			if (r != null)
+				for (RoomEntity i : r)
+					i.setAdminUnit(null);
+
+			super.remove();
+
+		}
 
 	public String getAdminUnitId() {
 		return adminUnitId;
@@ -85,5 +102,6 @@ public class AdminUnit extends BaseEntity implements Serializable {
 	public void setRoomEntitys(Collection<RoomEntity> param) {
 		this.roomEntitys = param;
 	}
-
+	
+	
 }

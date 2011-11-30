@@ -7,12 +7,16 @@
 		version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <form:update id="fu_ee_itcollege_team13_domain_BorderGuard" modelAttribute="borderGuard" path="/borderguards" versionField="Version" z="AxR+K5bwpOblBAdpnDe30WHYLNE=">
-        <field:input field="nameFirst" id="c_ee_itcollege_team13_domain_BorderGuard_nameFirst" required="true" z="KpuSzmQsXl4+wBh/XQZmqPk94jg="/>
-        <field:input field="nameLast" id="c_ee_itcollege_team13_domain_BorderGuard_nameLast" required="true" z="x866gJ0X2p8rK3eKWNxawjawBB0="/>
-       <table>
+    <!--  <form:update id="fu_ee_itcollege_team13_domain_BorderGuard" modelAttribute="borderGuard" path="/borderguards" versionField="Version" z="AxR+K5bwpOblBAdpnDe30WHYLNE=">-->
+	<springform:form action="" method="GET">
+		<springform:label path=""></springform:label>
+		<springform:textarea path="borderguard"  /> <!-- TODO mingi kala on --> 
+	</springform:form>      
+       <!-- <field:simple field="borderGuard" id="">${borderguard.nameFirst} ${borderguard.nameLast}</field:simple>
+       <field:select field="rooms" id="" path="" items="${rooms}"></field:select>
+          <table>
         	<tr>
-        		<th></th><th></th><th></th><th></th><th></th>
+        		<th></th><th>Üksus</th><th>Koht</th><th>Pikkus</th><th>Laius</th>
         		<c:forEach items=${bedsInRoom} var="bIR">
         			<td><springform:radiobutton path="borderguardinbed.id"></springform:radiobutton> </td>
         			<td></td>
@@ -21,6 +25,6 @@
         			<td></td>
         		</c:forEach>
         	</tr>
-        </table>
+        </table>-->
     </form:update>
 </div>

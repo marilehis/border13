@@ -18,9 +18,16 @@ public class BorderGuardController {
     
     @RequestMapping(value = "/{id}", params = "guardinbed", method = RequestMethod.GET)
     public String guardinbed(@PathVariable("id") Long id, Model uiModel) {
-        uiModel.addAttribute("borderguard", BorderGuard.findBorderGuard(id));
+    	List<Bed> freeBeds = new ArrayList<Bed>();
+    	System.err.println(BorderGuardInBed.findBorderGuardInBed(id).toString());
+    	RoomEntity bedEntity = BorderGuardInBed.findBorderGuardInBed(id).getBed().getRoomEntity();
+    	freeBeds = Bed.findFreeBedsInRoom(RoomEntity.findRoomEntity(bedEntity.getId()).getId(),id); 
+    	
+    	uiModel.addAttribute("freebeds",freeBeds);
+    	uiModel.addAttribute("borderguard", BorderGuard.findBorderGuard(id));
         uiModel.addAttribute("itemId", id);
-        return "borderguards/guardinbed";
+        uiModel.addAttribute("rooms",RoomEntity.findAllRoomEntitys());
+        return "borderguards/show";
     }
 	
 }

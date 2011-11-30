@@ -90,6 +90,7 @@ public class Bed extends BaseEntity implements Serializable {
 	
     public static List<Bed> findFreeBedsInRoom(Long roomId, Long bgId) {
     	List<Bed> bedsInRoom = new ArrayList<Bed>();
+    	System.out.println(roomId.toString());
     	Query q = entityManager().createQuery(
     			"SELECT * FROM Bed AS b " +
     			"JOIN b.boarderguardinbed AS bg " +
@@ -97,7 +98,7 @@ public class Bed extends BaseEntity implements Serializable {
     	q.setParameter("roomid",roomId);
     	q.setParameter("bgid",bgId);
     	bedsInRoom = q.getResultList();
-        return bedsInRoom;
+    	return bedsInRoom;
     }
    
 }

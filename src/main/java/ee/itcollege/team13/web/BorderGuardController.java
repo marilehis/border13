@@ -19,7 +19,7 @@ public class BorderGuardController {
     @RequestMapping(value = "/{id}", params = "guardinbed", method = RequestMethod.GET)
     public String guardinbed(@PathVariable("id") Long id, Model uiModel) {
     	List<Bed> freeBeds = new ArrayList<Bed>();
-    	System.err.println(BorderGuardInBed.findBorderGuardInBed(id).toString());
+    	System.out.println(BorderGuardInBed.findBorderGuardInBed(id).toString());
     	RoomEntity bedEntity = BorderGuardInBed.findBorderGuardInBed(id).getBed().getRoomEntity();
     	freeBeds = Bed.findFreeBedsInRoom(RoomEntity.findRoomEntity(bedEntity.getId()).getId(),id); 
     	

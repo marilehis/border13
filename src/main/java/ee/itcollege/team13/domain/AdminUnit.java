@@ -86,6 +86,4 @@ public class AdminUnit extends BaseEntity implements Serializable {
 		this.roomEntitys = param;
 	}
 
-
-
 }

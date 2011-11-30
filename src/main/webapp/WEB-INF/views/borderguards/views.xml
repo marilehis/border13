@@ -13,7 +13,4 @@
 <definition extends="default" name="borderguards/update">
         <put-attribute name="body" value="/WEB-INF/views/borderguards/update.jspx"/>
     </definition>
-    <definition extends="default" name="borderguards/guardinbed">
-        <put-attribute name="body" value="/WEB-INF/views/borderguards/guardinbed.jspx"/>
-    </definition>
 </tiles-definitions>

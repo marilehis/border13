@@ -42,12 +42,6 @@ privileged aspect BorderGuardController_Roo_Controller {
         return "borderguards/create";
     }
     
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String BorderGuardController.show(@PathVariable("id") Long id, Model uiModel) {
-        uiModel.addAttribute("borderguard", BorderGuard.findBorderGuard(id));
-        uiModel.addAttribute("itemId", id);
-        return "borderguards/show";
-    }
     
     @RequestMapping(method = RequestMethod.GET)
     public String BorderGuardController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {

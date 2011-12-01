@@ -86,17 +86,19 @@ public class RoomEntity extends BaseEntity implements Serializable {
     @Override
 	@Transactional
 	public void remove() {
-
-	Collection<Bed> b = getBeds();
-Collection<RoomEntity> r = getChildRoomEntitys();
-	
-		if (b != null)
-			for (Bed i : b)
-				i.setRoomEntity(null);
+	Collection<Bed> beds = getBeds();
+	Collection<RoomEntity> rooms = getChildRoomEntitys();
+		if (beds != null) {
+			for (Bed b : beds) {
+				b.remove();
+			}
+		}
 		
-		if (r != null)
-			for (RoomEntity i : r)
-				i.setParentRoomEntity(null);
+		if (rooms != null) {
+			for (RoomEntity r : rooms) {
+				r.remove();
+			}
+		}
 
 		super.remove();
 
@@ -156,6 +158,10 @@ Collection<RoomEntity> r = getChildRoomEntitys();
 
 	public Collection<Bed> getBeds() {
 		return beds;
+	}
+	
+	public int getBedCount() {
+		return beds != null ? beds.size() : 0;
 	}
 
 	public void setBeds(Collection<Bed> param) {

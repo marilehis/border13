@@ -2,115 +2,101 @@
 <div xmlns:c="http://java.sun.com/jsp/jstl/core" 
 	 xmlns:form="http://www.springframework.org/tags/form" 
 	 xmlns:jsp="http://java.sun.com/JSP/Page" 
-	 xmlns:spring="http://www.springframework.org/tags" version="2.0">
+	 xmlns:spring="http://www.springframework.org/tags"
+	 version="2.0">
 
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     
-    <style>
-      .layoutTable {
-        border: 0px;
-      }
-      
-      .layoutTable td {
-      	vertical-align: top;
-        border: 0px;
-        padding: 5px;
-      }
-      .layoutTable tr:nth-child(even) {
-        background-color: white !important;
-      }
-      button {
-        border: 1px solid #B3B3B3;
-        background-color: buttonface;
-      }
-      
-      .likeButton {
-        color: black !important;
-        border: 1px solid #B3B3B3;
-        background-color: buttonface;
-        padding: 1px 6px;
-        height: 20px;
-        text-decoration: none;
-        cursor: default;
-      }
-    </style>
+    <spring:url value="/roomentitys" var="baseUrl" />
+    <spring:url value="/resources/images/" var="img" />
+    
+    <c:if test="${errors != null}">
+    	<div class="errors">
+    	<c:forEach items="${errors}" var="e">
+    		${e.defaultMessage}<br />
+    	</c:forEach>
+    	</div>
+    </c:if>
+    <b>${breadCrumbs}</b>
+    
+    <form:errors />
 
-	<form:form method="POST" action="edit" modelAttribute="roomEntity">
+	<form:form method="POST" action="edit" commandName="roomEntity">
+		<form:hidden path="id" />
+		<form:hidden path="Version" />
 		<table class="layoutTable">
 			<tr>
-				<td><b>Kood</b></td><td><form:input path="roomEntityId" /></td>
-				<td><b>Asukoht</b></td><td><form:select path="adminUnit" items="${adminunits}" itemLabel="adminUnitName" itemValue="id"/></td>
+				<td><b>Kood</b></td>
+				<td>
+					<form:input path="roomEntityId" />
+					<form:errors path="roomEntityId" cssClass="errors"/>
+				</td>
+				<td><b>Asukoht</b></td>
+				<td>
+					<form:select path="adminUnit" items="${adminunits}" itemLabel="adminUnitName" itemValue="id" />
+					<form:errors path="adminUnit" cssClass="errors"/>
+				</td>
 			</tr>
 			<tr>
-				<td><b>Nimetus</b></td><td><form:input path="name" /></td>
+				<td><b>Nimetus</b></td>
+				<td>
+					<form:input path="name" />
+					<form:errors path="name" cssClass="errors"/>
+				</td>
 				<td><b>Allub</b></td><td>
-					<c:if test="${roomEntity.parentRoomEntity == null}">
-					  --
-					</c:if>
-					<c:if test="${roomEntity.parentRoomEntity != null}">
-						<c:out value="${roomEntity.parentRoomEntity.name}" />
-					</c:if>				
+					<form:select path="parentRoomEntity">
+						<form:option value="">--</form:option>
+						<form:options items="${allEntities}" itemLabel="name" itemValue="id"/>
+					</form:select>
+					<form:errors path="parentRoomEntity" cssClass="errors" />
 				</td>
 			</tr>
 			<tr>
 				<td><b>Kommentaar</b></td><td><form:textarea path="comment" /></td>
 				<td colspan="2" rowspan="2">
+					<c:if test="${roomEntity.id != null }">
 					<b>Alluvad</b>:<br />
 					<table>
 						<tr>
-						  
-						  <td colspan="2" align="right">
-						  	<c:if test="${roomEntity.id == null }">
-							  Alluvate lisamiseks salvesta ruumiüksus  
-							</c:if>						  
-							<c:if test="${roomEntity.id != null }">
-							  <button>Lisa</button>
-							</c:if>
+						  <td colspan="2" align="right">					  
+							  <table width="100%">
+							  	<c:forEach items="${roomEntity.childRoomEntitys}" var="child">
+							  		<tr>
+							  			<td><a href="edit?id=${child.id}">${child.name}</a></td>
+							  			<td width="5%"><a href="delete?id=${child.id}"><img src="${img}/delete.png" /></a></td>
+							  		</tr>
+							  	</c:forEach>
+							  	<tr>
+							  		<td colspan="2" align="right"><a href="edit?parentId=${roomEntity.id}">Lisa</a></td>
+							  	</tr>
+							  </table>  
 						  </td>
 						</tr>
 					</table>
-					
+					</c:if>
 				</td>
 			</tr>
 			<tr>
 				<td><b>Aadress</b></td><td><form:textarea path="address" /></td>
 			</tr>
 			<tr>
-				<td><b>Liik</b></td><td><c:out value="${roomEntity.roomType.name}"></c:out></td>					
-				<td colspan="2">Voodikohti kokku <b>xx</b> <a href="#" class="likeButton">Voodikohtade redaktor</a></td>
+				<td><b>Liik</b></td>
+				<td>
+					<form:select path="roomType" items="${roomtypes}" itemLabel="name" itemValue="id"></form:select>
+				</td>					
+				<td colspan="2">
+					<c:if test="${roomEntity.id != null }">
+						Voodikohti kokku <b>${roomEntity.bedCount}</b><br />
+						<spring:url value="/beds?parentId=${roomEntity.id}" var="bedsUrl" />
+						<button onclick="window.location='${bedsUrl}'; return false;">Voodikohtade redaktor</button>
+					</c:if>
+				</td>
 			</tr>
 			<tr>
 				<td colspan="4" align="right"><input type="submit" value="Salvesta" /><a href="/border13/roomentitys" class="likeButton">Loobu</a></td>
 			</tr>
 		</table>
 	</form:form>    
-    
-    <!-- 
-    
-    <form:create id="fc_ee_itcollege_team13_domain_RoomEntity" modelAttribute="roomEntity" path="/roomentitys">
-	    <table>
-	    	<tr>
-	    		<td><field:input field="roomEntityId" id="c_ee_itcollege_team13_domain_RoomEntity_roomEntityId" required="true" label="Kood"/></td>
-	    		<td><field:select field="adminUnit" id="c_ee_itcollege_team13_domain_RoomEntity_adminUnit" itemValue="id" items="${adminunits}" path="/adminunits" label="Asukoht"/></td>
-	    	</tr>	
-	    	<tr>
-	    		<td><field:input field="name" id="c_ee_itcollege_team13_domain_RoomEntity_name" required="true" label="Nimetus"/></td>
-	    		<td><field:select field="parentRoomEntity" id="c_ee_itcollege_team13_domain_RoomEntity_parentRoomEntity" itemValue="id" items="${roomentitys}" path="/roomentitys" label="Allub"/></td>
-	    	</tr>
-	    </table>
-    </form:create>
-    
-    <td width="25%">Asukoht</td><td width="25%"><field:select field="adminUnit" id="" itemValue="id" items="${adminunits}" path="/adminunits" /></td>
-    <form:create id="fc_ee_itcollege_team13_domain_RoomEntity" modelAttribute="roomEntity" path="/roomentitys">
-        
-        <field:input field="name" id="c_ee_itcollege_team13_domain_RoomEntity_name" required="true" z="DRVpzn8gRi1xJNKyie2cWgUlkhA="/>
-        <field:input field="address" id="c_ee_itcollege_team13_domain_RoomEntity_address" required="true" z="QwZ4vb7Gzh4Dz1JJBsE3Saf9+4g="/>
-        <field:input field="comment" id="c_ee_itcollege_team13_domain_RoomEntity_comment" z="6xQh1IS6KgzEccgnxYNKExSet+w="/>
-        <field:select field="roomType" id="c_ee_itcollege_team13_domain_RoomEntity_roomType" itemValue="id" items="${roomtypes}" path="/roomtypes" z="zJbJ0OW9SJsLiVEDseOaNBEj0vc="/>
-        <field:select field="parentRoomEntity" id="c_ee_itcollege_team13_domain_RoomEntity_parentRoomEntity" itemValue="id" items="${roomentitys}" path="/roomentitys" z="IXqNGF3NBsPU7SmeE/Uyrdm5v0M="/>
-        <field:simple field="childRoomEntitys" id="c_ee_itcollege_team13_domain_RoomEntity_childRoomEntitys" messageCode="entity_reference_not_managed" messageCodeAttribute="Room Entity" z="kEilqKsCEo3oURqx/YiznS7V7GY="/>
-        <field:simple field="beds" id="c_ee_itcollege_team13_domain_RoomEntity_beds" messageCode="entity_reference_not_managed" messageCodeAttribute="Bed" z="p9SPKJ5420f3uJPSS4EVo5wPznU="/>
-        <field:select field="adminUnit" id="c_ee_itcollege_team13_domain_RoomEntity_adminUnit" itemValue="id" items="${adminunits}" path="/adminunits" z="IIZnpWgeHP2SnAgUosHRfVRlI/c="/>
-    </form:create> -->
+
 </div>

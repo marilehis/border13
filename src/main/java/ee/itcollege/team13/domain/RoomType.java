@@ -99,13 +99,10 @@ public class RoomType extends BaseEntity implements Serializable {
 	}
 
 	public static RoomType findRoomTypeByIdString(String id) {
-        List<RoomType> resultList = entityManager()
-        		.createQuery("SELECT o FROM RoomType o WHERE o.roomTypeId = :typeId", RoomType.class)
-        		.setParameter("typeId", id)
-        		.getResultList();
-        if (resultList != null && resultList.size() == 1) {
-        	return resultList.get(0);
-        }
-        throw new RuntimeException("FAIL");
+        return entityManager()
+			.createQuery("SELECT o FROM RoomType o WHERE o.roomTypeId = :typeId", RoomType.class)
+			.setParameter("typeId", id)
+			.getSingleResult()
+		;
     }   
 }

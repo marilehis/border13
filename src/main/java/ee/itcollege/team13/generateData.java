@@ -18,6 +18,17 @@ public class generateData {
 			RoomType a = new RoomType();
 			a.setRoomTypeId("garnison");
 			a.setName("Garnison");
+			a.persist();
+			
+			RoomType b = new RoomType();
+			b.setRoomTypeId("maja");
+			b.setName("Maja");
+			b.persist();
+			
+			RoomType c = new RoomType();
+			c.setRoomTypeId("tiib");
+			c.setName("Tiib");
+			c.persist();
 		}
 	}
 

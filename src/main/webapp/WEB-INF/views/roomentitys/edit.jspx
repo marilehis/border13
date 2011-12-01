@@ -94,7 +94,9 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="4" align="right"><input type="submit" value="Salvesta" /><a href="/border13/roomentitys" class="likeButton">Loobu</a></td>
+				   <spring:url value="/roomentitys" var="roomsUrl"/>
+				   
+				<td colspan="4" align="right"><input type="submit" value="Salvesta" /><a href="${roomsUrl}" class="likeButton">Loobu</a></td>
 			</tr>
 		</table>
 	</form:form>    

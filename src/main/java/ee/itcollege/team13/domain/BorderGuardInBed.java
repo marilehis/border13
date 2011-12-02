@@ -117,10 +117,11 @@ public class BorderGuardInBed extends BaseEntity implements Serializable {
 		Date today = Calendar.getInstance().getTime();
 		BorderGuard bg = BorderGuard.findBorderGuard(id);
 		Query q = entityManager().createQuery(
-				"SELECT o FROM BorderGuardInBed o WHERE o.borderGuard = :BGid AND o.endDate > :today");
+				"SELECT o FROM BorderGuardInBed o WHERE o.borderGuard = :BGid AND o.endDate > :today", BorderGuardInBed.class);
 			q.setParameter("BGid", bg);
 			q.setParameter("today", today);
-			BorderGuardInBed BGsIB = (BorderGuardInBed)q.getSingleResult();
+			BorderGuardInBed BGsIB = (BorderGuardInBed) q.getSingleResult();
+			
 			return BGsIB;
 	}
    

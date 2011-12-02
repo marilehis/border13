@@ -2,25 +2,25 @@
 <div 	xmlns:c="http://java.sun.com/jsp/jstl/core" 
 		xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" 
 		xmlns:jsp="http://java.sun.com/JSP/Page" 
-		xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+		xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
 		xmlns:page="http://java.sun.com/jsp/"
 		xmlns:springform="http://www.springframework.org/tags/form" 
 		version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_ee_itcollege_team13_domain_BorderGuard" object="${borderguard}" path="/borderguards" z="h0yZmTxShIHfEKTk+6VaVcbmFRI=">
+    <form:show id="ps_ee_itcollege_team13_domain_BorderGuard" object="${borderguard}" path="/borderguards" z="h0yZmTxShIHfEKTk+6VaVcbmFRI=">
         <!--  <field:display field="borderGuardId" id="s_ee_itcollege_team13_domain_BorderGuard_borderGuardId" object="${borderguard}" z="pHKdQIajLOWAxUdCeU+fn1LNBtQ="/>-->
         <field:display field="nameFirst" id="s_ee_itcollege_team13_domain_BorderGuard_nameFirst" object="${borderguard}" z="u839RfxTdjuuzsjjk0dpantc9rU="/>
         <field:display field="nameLast" id="s_ee_itcollege_team13_domain_BorderGuard_nameLast" object="${borderguard}" z="paFgyUxWwU9/7Iczs5MjOxYXCRI="/>
         <field:display field="sex" id="s_ee_itcollege_team13_domain_BorderGuard_sex" object="${borderguard}" z="FhNi2z2byuU6X5fWIhnQurPwsnI="/>
         <field:display field="personalId" id="s_ee_itcollege_team13_domain_BorderGuard_personalId" object="${borderguard}" z="EM8Sg4dx+TbEsFXv/niTqEwDGtU="/>
         <field:display field="comment" id="s_ee_itcollege_team13_domain_BorderGuard_comment" object="${borderguard}" z="dp3nlZhRAGnC3BiaSZbUTo75BUM="/>
-        <field:select id="s_ee_itcollege_team13_web_BorderGuardController_RoomEntities" items="${allRooms}" field="allRooms" path="/borderguards"></field:select>
+        <field:select id="s_ee_itcollege_team13_domain_roomentity_plural" items="${allRooms}" field="allRooms" path="/borderguards"></field:select>
         <table>
         	<tr>
         		<th></th><th>Ruumiüksus</th><th>Koht</th><th>Pikkus</th><th>Laius</th>
         	</tr>
-        	<c:forEach items=${allRooms}, var="aR">
+        	<c:forEach items="${allRooms}" var="aR">
         	<tr>
         		<td></td>
         		<td>${aR.RoomEntity}</td>
@@ -31,6 +31,5 @@
         	</c:forEach>
         	
         </table>
-    </page:show>
-    <div id="error">${error}</div>
+    </form:show>
 </div>

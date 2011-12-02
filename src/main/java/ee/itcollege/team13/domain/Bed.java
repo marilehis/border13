@@ -135,22 +135,22 @@ public class Bed extends BaseEntity implements Serializable {
 	}
 
 	
-    public static List<Bed> findAllBedsInRoom(Long id) {
+    public static List<Bed> findFreeBedsInRoom(Long REid, Long BGid) {
     	List<Bed> bedsInRoom = new ArrayList<Bed>();
-
-    	Object roomId;
-	//	System.out.println(roomId.toString());
     	Query q = entityManager().createQuery(
     			"SELECT b FROM Bed b " +
     			"JOIN b.boarderguardinbed bg " +
-    			"WHERE b.roomentity= :roomid AND (bg.borderguard= :bgid OR bg.borderguard= :empty" +
-    			"ORDER BY bg.borderguard");
-    //	q.setParameter("roomid",roomId);
-    
-	//	q.setParameter("bgid",bgId);
+    			"WHERE b.roomentity= :roomid AND bg.(bg.borderguard= :bgid OR bg.borderguard= :empty" +
+    			"ORDER BY bg.borderguard", Bed.class);
+    	q.setParameter("roomid",REid); 
+    	q.setParameter("bgid",BGid);
     	q.setParameter("empty", "");
-    	
-    	bedsInRoom = q.getResultList();
+    	try{
+    		bedsInRoom = q.getResultList();
+    	}
+    	catch (RuntimeException e){
+    		throw new RuntimeException("There are no free beds left in this room");
+    	}
         return bedsInRoom;
     }
   

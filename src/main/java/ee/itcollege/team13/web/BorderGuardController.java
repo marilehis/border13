@@ -20,21 +20,29 @@ public class BorderGuardController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String show(@PathVariable("id") Long id, Model uiModel) {
     	List<Bed> freeBeds = new ArrayList<Bed>();
-    	Bed currentBed = BorderGuardInBed.getBGCurrentBed(id).getBed();
-    	RoomEntity currentRoom = currentBed.getRoomEntity();
     	List<RoomEntity> allRooms = RoomEntity.findAllRoomEntitys();
-    	try{
-    //		freeBeds = Bed.findFreeBedsInRoom(currentRoom.getId(), id);
-    	}
-    	catch (Exception e) {
-    		uiModel.addAttribute("error", e.getMessage());
+    	if(allRooms == null || allRooms.size() == 0){
+    		uiModel.addAttribute("borderguard", BorderGuard.findBorderGuard(id));
+            uiModel.addAttribute("itemId", id);
     		return "borderguards/show";
     	}
+    	if(BorderGuardInBed.findBorderGuardInBed(id) == null){
+    		uiModel.addAttribute("borderguard", BorderGuard.findBorderGuard(id));
+    		uiModel.addAttribute("allRooms", allRooms);
+            uiModel.addAttribute("itemId", id);
+    		return "borderguards/show";
+    	}
+    	Bed currentBed = BorderGuardInBed.getBGCurrentBed(id).getBed();
+    	RoomEntity currentRoom = currentBed.getRoomEntity();
+    	freeBeds = Bed.findFreeBedsInRoom(currentRoom.getId(), id);
     	
-    	uiModel.addAttribute("freeBeds", freeBeds);
-    	uiModel.addAttribute("allRooms",allRooms);
+    	if(freeBeds.isEmpty()){
+    		uiModel.addAttribute("error", "No free rooms");
+    	}else{
+    		uiModel.addAttribute("freeBeds", freeBeds);
+    	}
+    	
     	uiModel.addAttribute("currentRoom",currentRoom);
-
         uiModel.addAttribute("borderguard", BorderGuard.findBorderGuard(id));
         uiModel.addAttribute("itemId", id);
 

@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ee.itcollege.team13.domain.RoomEntity;
 import java.util.Collection;
-import java.util.Date;
+//import java.util.Date;
 import java.util.List;
 
 import javax.persistence.OneToMany;

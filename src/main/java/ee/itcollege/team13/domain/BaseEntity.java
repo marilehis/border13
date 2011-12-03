@@ -1,6 +1,5 @@
 package ee.itcollege.team13.domain;
 
-
 import java.util.Date;
 
 import javax.persistence.GeneratedValue;
@@ -11,22 +10,21 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreRemove;
 import javax.persistence.PreUpdate;
 
-
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.Transactional;
-
 
 @MappedSuperclass
 @RooToString
 @RooEntity(mappedSuperclass = true)
-
 public abstract class BaseEntity {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	String createdBy;
 	String updatedBy;
 	String deletedBy;
@@ -34,66 +32,78 @@ public abstract class BaseEntity {
 	Date updated;
 	Date deleted;
 
-	
+	protected static String authUser() {
+
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		if (auth != null) {
+			String userName = auth.getName();
+			return userName;
+		}
+
+		else
+
+			return null;
+
+	}
+
 	// 9999-12-31
 	protected static final Date notDeleted = new Date(253402207200000L);
-	
-	protected static  Date effectiveDate() {
-		
+
+	protected static Date effectiveDate() {
+
 		return new Date();
-		
+
 	}
-	
-	// TODO: muuta kasutaja andmed createdBy, updatedBy, modifiedBy
-	
+
 	@PrePersist
-    public void recordCreated() {
-        setCreated( new Date() );
-        setUpdated (notDeleted);
-        setDeleted (notDeleted);
-        setCreatedBy ("looja");
-    }
+	public void recordCreated() {
+		setCreated(new Date());
+		setUpdated(notDeleted);
+		setDeleted(notDeleted);
+		setCreatedBy(authUser());
+	}
 
-    @PreUpdate
-    public void recordUpdated() {
-        setUpdated( new Date() );
-        setUpdatedBy("uuendaja");
-    }
+	@PreUpdate
+	public void recordUpdated() {
+		setUpdated(new Date());
+		setUpdatedBy(authUser());
+	}
 
-    @PreRemove
-    public void preventRemove() {
-        throw new SecurityException("Removing of records is prohibited!");
-    }
-	
-    @Transactional
-    public void remove() {
-    	setDeleted(new Date());
-    	setDeletedBy ("kustutaja");
-    	merge();
-    }
-    
-    
-    @Transactional
-    public BaseEntity merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        
-    	if(this.id != null && !entityManager.contains(this)) {
-    		BaseEntity oldEntity = entityManager().find(getClass(), id);
-    		if (getCreated() == null)
-    			setCreated(oldEntity.getCreated());
-    		if (getCreatedBy() == null)
-    			setCreatedBy(oldEntity.getCreatedBy());
-     		if (getDeleted() == null)
-    			setDeleted(oldEntity.getDeleted());
-    		if (getDeletedBy() == null)
-    			setDeletedBy(oldEntity.getDeletedBy());
+	@PreRemove
+	public void preventRemove() {
+		throw new SecurityException("Removing of records is prohibited!");
+	}
 
-    	}
-        BaseEntity merged = this.entityManager.merge(this);
-        this.entityManager.flush();
-        return merged;
-    }
-    
+	@Transactional
+	public void remove() {
+		setDeleted(new Date());
+		setDeletedBy(authUser());
+		merge();
+	}
+
+	@Transactional
+	public BaseEntity merge() {
+		if (this.entityManager == null)
+			this.entityManager = entityManager();
+
+		if (this.id != null && !entityManager.contains(this)) {
+			BaseEntity oldEntity = entityManager().find(getClass(), id);
+			if (getCreated() == null)
+				setCreated(oldEntity.getCreated());
+			if (getCreatedBy() == null)
+				setCreatedBy(oldEntity.getCreatedBy());
+			if (getDeleted() == null)
+				setDeleted(oldEntity.getDeleted());
+			if (getDeletedBy() == null)
+				setDeletedBy(oldEntity.getDeletedBy());
+
+		}
+		BaseEntity merged = this.entityManager.merge(this);
+		this.entityManager.flush();
+		return merged;
+	}
+
 	protected String getCreatedBy() {
 		return createdBy;
 	}

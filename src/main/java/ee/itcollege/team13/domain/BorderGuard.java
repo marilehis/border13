@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -32,8 +33,9 @@ public class BorderGuard extends BaseEntity implements Serializable {
 	@NotNull
 	private String nameLast;
 
-	@NotNull
-	private Character sex;
+	@NotNull(message="M,N")
+	@Size(max = 1)
+	private String sex;
 
 	@NotNull
 	private String personalId;
@@ -119,11 +121,11 @@ public class BorderGuard extends BaseEntity implements Serializable {
 		this.nameLast = nameLast;
 	}
 
-	public Character getSex() {
+	public String getSex() {
 		return this.sex;
 	}
 
-	public void setSex(Character sex) {
+	public void setSex(String sex) {
 		this.sex = sex;
 	}
 

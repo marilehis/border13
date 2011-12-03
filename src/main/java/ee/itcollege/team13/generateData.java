@@ -71,7 +71,7 @@ public class generateData {
 			a.setNameLast("Kosjugin");
 			a.setPersonalId("7345873475");
 			a.setSex('M');
-			
+			a.persist();
 		}
 	}
 

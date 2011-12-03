@@ -15,18 +15,18 @@
         <field:display field="sex" id="s_ee_itcollege_team13_domain_BorderGuard_sex" object="${borderguard}" z="FhNi2z2byuU6X5fWIhnQurPwsnI="/>
         <field:display field="personalId" id="s_ee_itcollege_team13_domain_BorderGuard_personalId" object="${borderguard}" z="EM8Sg4dx+TbEsFXv/niTqEwDGtU="/>
         <field:display field="comment" id="s_ee_itcollege_team13_domain_BorderGuard_comment" object="${borderguard}" z="dp3nlZhRAGnC3BiaSZbUTo75BUM="/>
-        <field:select id="s_ee_itcollege_team13_domain_roomentity_plural" items="${allRooms}" field="allRooms" path="/borderguards"></field:select>
+        <field:display field="roomEntity" id="s_ee_itcollege_team13_domain_roomentity" object="${pRoom}"></field:display>
         <table>
         	<tr>
         		<th></th><th>Ruumiüksus</th><th>Koht</th><th>Pikkus</th><th>Laius</th>
         	</tr>
-        	<c:forEach items="${allRooms}" var="aR">
+        	<c:forEach items="${freeBeds}" var="fB">
         	<tr>
         		<td></td>
-        		<td>${aR.RoomEntity}</td>
-        		<td>${aR.bedId}</td>
-        		<td>${aR.lenght}</td>
-        		<td>${aR.width}</td>
+        		<td>${fB.roomEntity}</td>
+        		<td>${fB.bedId}</td>
+        		<td>${fB.lenght}</td>
+        		<td>${fB.width}</td>
         	</tr>
         	</c:forEach>
         	

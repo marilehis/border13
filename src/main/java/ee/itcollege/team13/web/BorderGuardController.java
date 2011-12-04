@@ -23,25 +23,42 @@ public class BorderGuardController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String show(@PathVariable("id") Long id, Model uiModel) {
-    	List<Bed> freeBeds = new ArrayList<Bed>();
+    	List<RoomEntity> pRoomEntity = RoomEntity.findParentRoomEntitys();
+    	
     	Bed currentBed = BorderGuardInBed.getBGCurrentBed(id).getBed();
     	RoomEntity currentRoom = currentBed.getRoomEntity();
-    	List<RoomEntity> allRooms = RoomEntity.findAllRoomEntitys();
-    	try{
-    //		freeBeds = Bed.findFreeBedsInRoom(currentRoom.getId(), id);
-    	}
-    	catch (Exception e) {
-    		uiModel.addAttribute("error", e.getMessage());
-    		return "borderguards/show";
-    	}
+    	List<Bed> freeBeds = Bed.findFreeBedsInRoom(currentRoom);
+    	freeBeds.add(0, currentBed);
     	
+    	String nimi = BorderGuard.findBorderGuard(id).getNameFirst() + " " + BorderGuard.findBorderGuard(id).getNameLast();
+    	
+    	uiModel.addAttribute("bgName", nimi);
     	uiModel.addAttribute("freeBeds", freeBeds);
-    	uiModel.addAttribute("allRooms",allRooms);
     	uiModel.addAttribute("currentRoom",currentRoom);
-
         uiModel.addAttribute("borderguard", BorderGuard.findBorderGuard(id));
         uiModel.addAttribute("itemId", id);
+		uiModel.addAttribute("pRoom", pRoomEntity);
+		
+        return "borderguards/show";
 
+    }
+    
+    @RequestMapping(value = "/{id}", params = "rE{reID}", method = RequestMethod.GET)
+    public String show(@PathVariable("id") Long id, @PathVariable("reID") Long reID, Model uiModel) {
+    	List<RoomEntity> pRoomEntity = RoomEntity.findParentRoomEntitys();
+    	
+    	Bed currentBed = BorderGuardInBed.getBGCurrentBed(id).getBed();
+    	List<Bed> freeBeds = Bed.findFreeBedsInRoom(RoomEntity.findRoomEntity(reID));
+    	freeBeds.add(0, currentBed);
+    	
+    	String nimi = BorderGuard.findBorderGuard(id).getNameFirst() + " " + BorderGuard.findBorderGuard(id).getNameLast();
+    	
+    	uiModel.addAttribute("bgName", nimi);
+    	uiModel.addAttribute("freeBeds", freeBeds);
+        uiModel.addAttribute("borderguard", BorderGuard.findBorderGuard(id));
+        uiModel.addAttribute("itemId", id);
+		uiModel.addAttribute("pRoom", pRoomEntity);
+		
         return "borderguards/show";
 
     }

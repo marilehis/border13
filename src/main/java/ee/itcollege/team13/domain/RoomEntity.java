@@ -82,8 +82,28 @@ public class RoomEntity extends BaseEntity implements Serializable {
 				.getResultList();
 	}
 
+	public static List<RoomEntity> findParentRoomEntitys() {
+		
+		return entityManager()
+				.createQuery(
+						"SELECT o FROM RoomEntity o WHERE o.deleted > :ed " +
+						"AND o.parentRoomEntity IS NULL",
+						RoomEntity.class).setParameter("ed", effectiveDate())
+						
+				.getResultList();
+	}	
 	
-	// TODO: fix the date
+	public static List<RoomEntity> findChildRoomEntitys(Long id) {
+		return entityManager()
+				.createQuery(
+						"SELECT o FROM RoomEntity o WHERE o.deleted > :ed AND " +
+						"o.parentRoomEntity = :pID",
+						RoomEntity.class).setParameter("ed", effectiveDate()).setParameter("pID", id)
+						
+				.getResultList();
+	}		
+	
+
 	public static List<RoomEntity> findAllRoomEntitysByDate(Date date) {
 		return entityManager()
 				.createQuery(

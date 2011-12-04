@@ -7,6 +7,6 @@
         <field:display field="length" id="s_ee_itcollege_team13_domain_Bed_length" object="${bed}" z="VUBwSlMIPfBNKnjr0Q3fYdoFeHw="/>
         <field:display field="width" id="s_ee_itcollege_team13_domain_Bed_width" object="${bed}" z="d/NQXDu4BR+oT69wctca+X9DkwA="/>
         <field:display field="comment" id="s_ee_itcollege_team13_domain_Bed_comment" object="${bed}" z="dv2lx+ixjJOW9R0KyjlkP8XP1OY="/>
-       <!--  <field:display field="roomEntity" id="s_ee_itcollege_team13_domain_Bed_roomEntity" object="${bed}" z="D6RXGNjVAsxRjCZOXUmiGEEcunk="/>  -->
+        <field:display field="roomEntity" id="s_ee_itcollege_team13_domain_Bed_roomEntity" object="${bed}" z="D6RXGNjVAsxRjCZOXUmiGEEcunk="/>  
     </page:show>
 </div>

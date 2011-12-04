@@ -135,13 +135,13 @@ public class Bed extends BaseEntity implements Serializable {
 	}
 
 	
-    public static List<Bed> findFreeBedsInRoom(Long REid) {
+    public static List<Bed> findFreeBedsInRoom(RoomEntity rentity) {
     	List<Bed> bedsInRoom = new ArrayList<Bed>();
     	Query q = entityManager().createQuery(
-    			"SELECT b FROM Bed b " +
-    			"JOIN BorderGuardInBed bgib" +
-    			"WHERE b.roomentity= :roomid AND bgib.endDate < :now", Bed.class);
-    	q.setParameter("roomid",REid);
+    			"SELECT o FROM Bed AS o " +
+    			"JOIN o.borderGuardsInBed AS bgib " +
+    			"WHERE o.roomEntity = :roomid AND bgib.endDate < :now", Bed.class);
+    	q.setParameter("roomid",rentity);
     	q.setParameter("now", effectiveDate());
     	bedsInRoom = q.getResultList();
 

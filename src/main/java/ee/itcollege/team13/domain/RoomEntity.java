@@ -83,6 +83,16 @@ public class RoomEntity extends BaseEntity implements Serializable {
 	}
 
 	
+	// TODO: fix the date
+	public static List<RoomEntity> findAllRoomEntitysByDate(Date date) {
+		return entityManager()
+				.createQuery(
+						"SELECT o FROM RoomEntity o WHERE o.deleted > :ed",
+						RoomEntity.class).setParameter("ed", effectiveDate())
+				.getResultList();
+	}
+	
+	
     @Override
 	@Transactional
 	public void remove() {

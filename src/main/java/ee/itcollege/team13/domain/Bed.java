@@ -23,7 +23,7 @@ import javax.persistence.ManyToOne;
  * 
  */
 @Entity
-@RooToString
+
 @RooEntity
 public class Bed extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -49,6 +49,20 @@ public class Bed extends BaseEntity implements Serializable {
 		super();
 	}
 
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("BedId: ").append(getBedId()).append(", ");
+    //    sb.append("BorderGuardsInBed: ").append(getBorderGuardsInBed() == null ? "null" : getBorderGuardsInBed().size()).append(", ");
+        sb.append("Comment: ").append(getComment()).append(", ");
+        sb.append("Id: ").append(getId()).append(", ");
+        sb.append("Length: ").append(getLength()).append(", ");
+     //   sb.append("RoomEntity: ").append(getRoomEntity()).append(", ");
+        sb.append("Version: ").append(getVersion()).append(", ");
+        sb.append("Width: ").append(getWidth());
+        return sb.toString();
+    }
+	
+	
 	public static long countBeds() {
 		return entityManager()
 				.createQuery(
@@ -135,24 +149,24 @@ public class Bed extends BaseEntity implements Serializable {
 	}
 
 	
-    public static List<Bed> findAllBedsInRoom(Long id) {
-    	List<Bed> bedsInRoom = new ArrayList<Bed>();
-
-    	Object roomId;
-	//	System.out.println(roomId.toString());
-    	Query q = entityManager().createQuery(
-    			"SELECT b FROM Bed b " +
-    			"JOIN b.boarderguardinbed bg " +
-    			"WHERE b.roomentity= :roomid AND (bg.borderguard= :bgid OR bg.borderguard= :empty" +
-    			"ORDER BY bg.borderguard");
-    //	q.setParameter("roomid",roomId);
-    
-	//	q.setParameter("bgid",bgId);
-    	q.setParameter("empty", "");
-    	
-    	bedsInRoom = q.getResultList();
-        return bedsInRoom;
-    }
+//    public static List<Bed> findAllBedsInRoom(Long id) {
+//    	List<Bed> bedsInRoom = new ArrayList<Bed>();
+//
+//    	Object roomId;
+//	//	System.out.println(roomId.toString());
+//    	Query q = entityManager().createQuery(
+//    			"SELECT b FROM Bed b " +
+//    			"JOIN b.boarderguardinbed bg " +
+//    			"WHERE b.roomentity= :roomid AND (bg.borderguard= :bgid OR bg.borderguard= :empty" +
+//    			"ORDER BY bg.borderguard");
+//    //	q.setParameter("roomid",roomId);
+//    
+//	//	q.setParameter("bgid",bgId);
+//    	q.setParameter("empty", "");
+//    	
+//    	bedsInRoom = q.getResultList();
+//        return bedsInRoom;
+//    }
   
 
 }

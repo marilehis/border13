@@ -85,7 +85,8 @@ public class RoomEntity extends BaseEntity implements Serializable {
 		
 		return entityManager()
 				.createQuery(
-						"SELECT o FROM RoomEntity o WHERE o.deleted > :ed",
+						"SELECT o FROM RoomEntity o WHERE o.deleted > :ed " +
+						"AND o.parentRoomEntity IS NULL",
 						RoomEntity.class).setParameter("ed", effectiveDate())
 						
 				.getResultList();

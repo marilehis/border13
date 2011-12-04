@@ -8,25 +8,53 @@
 		version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
- 
-    <form:show id="ps_ee_itcollege_team13_domain_BorderGuard" object="${borderguard}" path="/borderguards" z="h0yZmTxShIHfEKTk+6VaVcbmFRI=">
-     <!--       <field:display field="borderGuardId" id="s_ee_itcollege_team13_domain_BorderGuard_borderGuardId" object="${borderguard}" z="pHKdQIajLOWAxUdCeU+fn1LNBtQ="/>
-       <field:display field="nameFirst" id="s_ee_itcollege_team13_domain_BorderGuard_nameFirst" object="${borderguard}" z="u839RfxTdjuuzsjjk0dpantc9rU="/>
-        <field:display field="nameLast" id="s_ee_itcollege_team13_domain_BorderGuard_nameLast" object="${borderguard}" z="paFgyUxWwU9/7Iczs5MjOxYXCRI="/>
-        <field:display field="sex" id="s_ee_itcollege_team13_domain_BorderGuard_sex" object="${borderguard}" z="FhNi2z2byuU6X5fWIhnQurPwsnI="/>
-        <field:display field="personalId" id="s_ee_itcollege_team13_domain_BorderGuard_personalId" object="${borderguard}" z="EM8Sg4dx+TbEsFXv/niTqEwDGtU="/>
-        <field:display field="comment" id="s_ee_itcollege_team13_domain_BorderGuard_comment" object="${borderguard}" z="dp3nlZhRAGnC3BiaSZbUTo75BUM="/>
-        <field:select field="pRoom" id="s_ee_itcollege_team13_domain_roomentity" items="${pRoom}" itemLabel="name" itemValue="id" path="/roomentitys"></field:select>
-        
-        <springform:radiobuttons path="borderguards" items="${freeBeds}" ></springform:radiobuttons>
-         
-        <input type="submit" value="${button_save}"></input>    
-
-     -->
-     
-     	<field:display field="bgName" id="s_ee_itcollege_team13_domain_BorderGuard_bgName" object="${borderguard}"></field:display>
-     	<field:select field="pRoom" id="s_ee_itcollege_team13_domain_roomentity" items="${pRoom}" itemLabel="name" itemValue="id" path="/roomentitys"></field:select>
-    </form:show>
+    
+ 	<springform:form method="GET" action="show" commandName="borderguards">
+    	<table class="layoutTable">
+    		<tr>
+    			<td>Piirivalvur</td>
+    			<td>${bgName}</td>
+    		</tr>
+    		<tr>
+    			<td>
+    			Ruumiüksus
+    			</td>
+    			<td>
+    			<select>
+    				<c:forEach items="${pRoom}" var="pR">
+    					<option value="${pR.id}">${pR.name}</option>	
+    				</c:forEach>
+    			</select>
+    			<input type="button" value="${save_button}"/>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td colspan="2">
+    				<table>
+    				<tr>
+    				<th>Ruumiüksus</th><th>Koht</th><th>Pikkus</th><th>Laius</th>
+    				</tr>
+    				<c:forEach items="${freeBeds}" var="fB">    					
+    					<tr>
+    						<td>
+    							<input type="radio" name="bed" value="${fB.id}">${fB.roomEntity.name}</input>
+    						</td>
+    						<td>
+    							${fB.bedId}
+    						</td>
+    						<td>
+    							${fB.length}
+    						</td>
+    						<td>
+    							${fB.width}
+    						</td>
+    					</tr>
+    				</c:forEach>
+    				</table>
+    			</td>
+    		</tr>
+    	</table>
+    </springform:form>
 </div>
 <!-- <table>
         	<tr>

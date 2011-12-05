@@ -42,7 +42,6 @@ privileged aspect BorderGuardController_Roo_Controller {
         return "borderguards/create";
     }
     
-    
     @RequestMapping(method = RequestMethod.GET)
     public String BorderGuardController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {

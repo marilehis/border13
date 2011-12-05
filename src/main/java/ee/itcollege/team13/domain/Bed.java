@@ -23,7 +23,7 @@ import javax.persistence.ManyToOne;
  * 
  */
 @Entity
-@RooToString
+
 @RooEntity
 public class Bed extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -49,6 +49,20 @@ public class Bed extends BaseEntity implements Serializable {
 		super();
 	}
 
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("BedId: ").append(getBedId()).append(", ");
+    //    sb.append("BorderGuardsInBed: ").append(getBorderGuardsInBed() == null ? "null" : getBorderGuardsInBed().size()).append(", ");
+        sb.append("Comment: ").append(getComment()).append(", ");
+        sb.append("Id: ").append(getId()).append(", ");
+        sb.append("Length: ").append(getLength()).append(", ");
+     //   sb.append("RoomEntity: ").append(getRoomEntity()).append(", ");
+        sb.append("Version: ").append(getVersion()).append(", ");
+        sb.append("Width: ").append(getWidth());
+        return sb.toString();
+    }
+	
+	
 	public static long countBeds() {
 		return entityManager()
 				.createQuery(
@@ -134,7 +148,6 @@ public class Bed extends BaseEntity implements Serializable {
 		this.roomEntity = param;
 	}
 
-	
     public static List<Bed> findFreeBedsInRoom(RoomEntity rentity) {
     	List<Bed> bedsInRoom = new ArrayList<Bed>();
     	Query q = entityManager().createQuery(
@@ -147,6 +160,7 @@ public class Bed extends BaseEntity implements Serializable {
 
         return bedsInRoom;
     }
+
   
 
 }

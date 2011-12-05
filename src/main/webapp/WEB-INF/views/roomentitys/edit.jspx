@@ -27,24 +27,24 @@
 		<form:hidden path="Version" />
 		<table class="layoutTable">
 			<tr>
-				<td><b>Kood</b></td>
+				<td><b><spring:message code="label_ee_itcollege_team13_domain_roomentity_id"/></b></td>
 				<td>
 					<form:input path="roomEntityId" />
 					<form:errors path="roomEntityId" cssClass="errors"/>
 				</td>
-				<td><b>Asukoht</b></td>
+				<td><b><spring:message code="label_ee_itcollege_team13_domain_adminunit_adminunitname"/></b></td>
 				<td>
 					<form:select path="adminUnit" items="${adminunits}" itemLabel="adminUnitName" itemValue="id" />
 					<form:errors path="adminUnit" cssClass="errors"/>
 				</td>
 			</tr>
 			<tr>
-				<td><b>Nimetus</b></td>
+				<td><b><spring:message code="label_ee_itcollege_team13_domain_roomentity_name"/></b></td>
 				<td>
 					<form:input path="name" />
 					<form:errors path="name" cssClass="errors"/>
 				</td>
-				<td><b>Allub</b></td><td>
+				<td><b><spring:message code="label_ee_itcollege_team13_domain_roomentity_parentroomentity"/></b></td><td>
 					<form:select path="parentRoomEntity">
 						<form:option value="">--</form:option>
 						<form:options items="${allEntities}" itemLabel="name" itemValue="id"/>
@@ -53,10 +53,10 @@
 				</td>
 			</tr>
 			<tr>
-				<td><b>Kommentaar</b></td><td><form:textarea path="comment" /></td>
+				<td><b><spring:message code="label_ee_itcollege_team13_domain_roomentity_comment"/></b></td><td><form:textarea path="comment" /></td>
 				<td colspan="2" rowspan="2">
 					<c:if test="${roomEntity.id != null }">
-					<b>Alluvad</b>:<br />
+					<b><spring:message code="label_ee_itcollege_team13_domain_roomentity_childroomentitys"/></b>:<br />
 					<table>
 						<tr>
 						  <td colspan="2" align="right">					  
@@ -68,7 +68,7 @@
 							  		</tr>
 							  	</c:forEach>
 							  	<tr>
-							  		<td colspan="2" align="right"><a href="edit?parentId=${roomEntity.id}">Lisa</a></td>
+							  		<td colspan="2" align="right"><a href="edit?parentId=${roomEntity.id}"><spring:message code="button_add" /></a></td>
 							  	</tr>
 							  </table>  
 						  </td>
@@ -78,25 +78,28 @@
 				</td>
 			</tr>
 			<tr>
-				<td><b>Aadress</b></td><td><form:textarea path="address" /></td>
+				<td><b><spring:message code="label_ee_itcollege_team13_domain_roomentity_address"/></b></td><td><form:textarea path="address" /></td>
 			</tr>
 			<tr>
-				<td><b>Liik</b></td>
+				<td><b><spring:message code="label_ee_itcollege_team13_domain_roomentity_roomtype"/></b></td>
 				<td>
 					<form:select path="roomType" items="${roomtypes}" itemLabel="name" itemValue="id"></form:select>
 				</td>					
 				<td colspan="2">
 					<c:if test="${roomEntity.id != null }">
-						Voodikohti kokku <b>${roomEntity.bedCount}</b><br />
-						<spring:url value="/beds?parentId=${roomEntity.id}" var="bedsUrl" />
-						<button onclick="window.location='${bedsUrl}'; return false;">Voodikohtade redaktor</button>
+						<spring:message code="label_ee_itcollege_team13_domain_roomentity_beds"/> <b>${roomEntity.bedCount}</b><br />
+						<spring:url value="/beds?roomEntityId=${roomEntity.id}" var="bedsUrl" />
+						<button onclick="window.location='${bedsUrl}'; return false;">
+						<spring:message code="button_update"/>
+						<spring:message code="label_ee_itcollege_team13_domain_roomentity_beds"/>
+						</button>
 					</c:if>
 				</td>
 			</tr>
 			<tr>
 				   <spring:url value="/roomentitys" var="roomsUrl"/>
-				   
-				<td colspan="4" align="right"><input type="submit" value="Salvesta" /><a href="${roomsUrl}" class="likeButton">Loobu</a></td>
+					<spring:message code="button_save" var="msg_save"/>   
+				<td colspan="4" align="right"><input type="submit" value="${msg_save}" /><a href="${roomsUrl}" class="likeButton"><spring:message code="button_cancel"/></a></td>
 			</tr>
 		</table>
 	</form:form>    

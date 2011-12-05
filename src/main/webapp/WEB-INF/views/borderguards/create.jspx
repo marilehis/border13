@@ -6,7 +6,7 @@
         <field:input field="borderGuardId" id="c_ee_itcollege_team13_domain_BorderGuard_borderGuardId" required="true" z="MUg7gOVEoBC0VlH+NpB3zs/cQnc="/>
         <field:input field="nameFirst" id="c_ee_itcollege_team13_domain_BorderGuard_nameFirst" required="true" z="KpuSzmQsXl4+wBh/XQZmqPk94jg="/>
         <field:input field="nameLast" id="c_ee_itcollege_team13_domain_BorderGuard_nameLast" required="true" z="x866gJ0X2p8rK3eKWNxawjawBB0="/>
-        <field:input field="sex" id="c_ee_itcollege_team13_domain_BorderGuard_sex" required="true" z="98wnYZGHVlgxOpyVP79AnA0Gyrs="/>
+        <field:input field="sex" id="c_ee_itcollege_team13_domain_BorderGuard_sex" max="1" required="true" z="XgjQ7yymvgehLO8iknm0pukQOos="/>
         <field:input field="personalId" id="c_ee_itcollege_team13_domain_BorderGuard_personalId" required="true" z="6rGe6B71cIL1IZwHSEBlWb2VdKY="/>
         <field:input field="comment" id="c_ee_itcollege_team13_domain_BorderGuard_comment" z="RddhsQ7ee0D90NDoGcBnfeZJMjU="/>
         <field:simple field="borderGuardsInCompany" id="c_ee_itcollege_team13_domain_BorderGuard_borderGuardsInCompany" messageCode="entity_reference_not_managed" messageCodeAttribute="Border Guard In Company" z="Wy0mGduMIYKX9CKwtkzp/JziQQY="/>

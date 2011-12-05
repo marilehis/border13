@@ -2,6 +2,7 @@ package ee.itcollege.team13.domain;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -101,6 +102,16 @@ public class RoomEntity extends BaseEntity implements Serializable {
 						
 				.getResultList();
 	}		
+	
+
+	public static List<RoomEntity> findAllRoomEntitysByDate(Date date) {
+		return entityManager()
+				.createQuery(
+						"SELECT o FROM RoomEntity o WHERE o.deleted > :ed",
+						RoomEntity.class).setParameter("ed", effectiveDate())
+				.getResultList();
+	}
+	
 	
     @Override
 	@Transactional

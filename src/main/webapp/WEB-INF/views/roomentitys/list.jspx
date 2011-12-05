@@ -9,7 +9,11 @@
     <spring:url value="/roomentitys" var="urlBase" />
 	<spring:url value="resources/images" var="img"/>
 
+<<<<<<< HEAD
     <h1><spring:message code="label_ee_itcollege_team13_domain_roomentity_plural" /></h1>
+=======
+    <h1><spring:message code="label_ee_itcollege_team13_domain_roomentity_plural"/></h1>
+>>>>>>> 776428266b94e6c9fa0857e77e606cf737ea7d3a
 
 	<c:if test="${roomentitys == null}">
 		Pole ühtegi lisatud
@@ -17,6 +21,7 @@
 	<c:if test="${roomentitys != null}">
 		<table>
 		<thead><tr>
+<<<<<<< HEAD
 			<td width="10%">
 				<spring:message code="label_ee_itcollege_team13_domain_roomentity_id" />
 			</td>
@@ -26,6 +31,11 @@
 			<td>
 				<spring:message code="label_ee_itcollege_team13_domain_roomentity_roomtype" />
 			</td>
+=======
+		<td width="10%"><spring:message code="label_ee_itcollege_team13_domain_roomentity_id"/></td>
+			<td><spring:message code="label_ee_itcollege_team13_domain_roomentity_name"/></td>
+			<td><spring:message code="label_ee_itcollege_team13_domain_roomentity_roomtype"/></td>
+>>>>>>> 776428266b94e6c9fa0857e77e606cf737ea7d3a
 			<td width="40px"></td>
 		</tr>
 		</thead>
@@ -39,7 +49,12 @@
 			</td>
 		</tr></c:forEach>
 		<thead>
-			<tr><td colspan="4"><a href="roomentitys/edit"><img src="${img}/add.png" /> Lisa uus</a></td></tr>
+			<tr><td colspan="4"><a href="roomentitys/edit">
+			<img src="${img}/add.png" /><c:out value=" " />
+			<spring:message code="label_ee_itcollege_team13_domain_roomentity"
+			                htmlEscape="false" var="msg_roomentity" />
+			<spring:message code="entity_create" arguments="${msg_roomentity}" />
+			</a></td></tr>
 		</thead>
 		</table>
 	</c:if>

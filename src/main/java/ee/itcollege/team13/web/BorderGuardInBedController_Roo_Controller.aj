@@ -78,25 +78,6 @@ privileged aspect BorderGuardInBedController_Roo_Controller {
         return "borderguardinbeds/list";
     }
     
-    @RequestMapping(method = RequestMethod.PUT)
-    public String BorderGuardInBedController.update(@Valid BorderGuardInBed borderGuardInBed, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("borderGuardInBed", borderGuardInBed);
-            addDateTimeFormatPatterns(uiModel);
-            return "borderguardinbeds/update";
-        }
-        uiModel.asMap().clear();
-        borderGuardInBed.merge();
-        return "redirect:/borderguardinbeds/" + encodeUrlPathSegment(borderGuardInBed.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
-    public String BorderGuardInBedController.updateForm(@PathVariable("id") Long id, Model uiModel) {
-        uiModel.addAttribute("borderGuardInBed", BorderGuardInBed.findBorderGuardInBed(id));
-        addDateTimeFormatPatterns(uiModel);
-        return "borderguardinbeds/update";
-    }
-    
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public String BorderGuardInBedController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         BorderGuardInBed.findBorderGuardInBed(id).remove();

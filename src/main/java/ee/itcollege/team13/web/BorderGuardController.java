@@ -1,8 +1,7 @@
 package ee.itcollege.team13.web;
 
-import java.util.*;
-
-import ee.itcollege.team13.domain.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.roo.addon.web.mvc.controller.RooWebScaffold;
 import org.springframework.stereotype.Controller;
@@ -10,6 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import ee.itcollege.team13.domain.Bed;
+import ee.itcollege.team13.domain.BorderGuard;
+import ee.itcollege.team13.domain.BorderGuardInBed;
+import ee.itcollege.team13.domain.RoomEntity;
 
 @RooWebScaffold(path = "borderguards", formBackingObject = BorderGuard.class)
 @RequestMapping("/borderguards")

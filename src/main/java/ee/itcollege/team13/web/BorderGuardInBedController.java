@@ -3,6 +3,8 @@ package ee.itcollege.team13.web;
 import ee.itcollege.team13.domain.Bed;
 import ee.itcollege.team13.domain.BorderGuard;
 import ee.itcollege.team13.domain.BorderGuardInBed;
+import ee.itcollege.team13.domain.RoomEntity;
+
 import java.io.UnsupportedEncodingException;
 import java.lang.Integer;
 import java.lang.Long;
@@ -40,7 +42,22 @@ public class BorderGuardInBedController {
     
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
-        uiModel.addAttribute("borderGuardInBed", BorderGuardInBed.findBorderGuardInBed(id));
+        Bed currentBed = BorderGuardInBed.getBGCurrentBed(id).getBed();
+        List<RoomEntity> pRoomEntity = RoomEntity.findParentRoomEntitys(); 
+        RoomEntity currentRoom = currentBed.getRoomEntity();
+    	List<Bed> freeBeds = Bed.findFreeBedsInRoom(currentRoom);
+    	freeBeds.add(0, currentBed);
+    	
+    	String nimi = BorderGuard.findBorderGuard(id).getNameFirst() + " " + BorderGuard.findBorderGuard(id).getNameLast();
+    	
+    	uiModel.addAttribute("borderGuardInBed", BorderGuardInBed.findBorderGuardInBed(id));
+    	uiModel.addAttribute("bgName", nimi);
+    	uiModel.addAttribute("freeBeds", freeBeds);
+    	uiModel.addAttribute("currentRoom",currentRoom);
+        uiModel.addAttribute("borderguard", BorderGuard.findBorderGuard(id));
+        uiModel.addAttribute("itemId", id);
+		uiModel.addAttribute("pRoom", pRoomEntity);
+        
         addDateTimeFormatPatterns(uiModel);
         return "borderguardinbeds/update";
     }

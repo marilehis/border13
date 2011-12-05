@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:spring="http://www.springframework.org/tags" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
+    <spring:url value="/borderguardinbeds" var="urlBase" />
+	
     <page:show id="ps_ee_itcollege_team13_domain_BorderGuard" object="${borderguard}" path="/borderguards" z="h0yZmTxShIHfEKTk+6VaVcbmFRI=">
         <field:display field="borderGuardId" id="s_ee_itcollege_team13_domain_BorderGuard_borderGuardId" object="${borderguard}" z="pHKdQIajLOWAxUdCeU+fn1LNBtQ="/>
         <field:display field="nameFirst" id="s_ee_itcollege_team13_domain_BorderGuard_nameFirst" object="${borderguard}" z="u839RfxTdjuuzsjjk0dpantc9rU="/>
@@ -9,5 +11,6 @@
         <field:display field="sex" id="s_ee_itcollege_team13_domain_BorderGuard_sex" object="${borderguard}" z="FhNi2z2byuU6X5fWIhnQurPwsnI="/>
         <field:display field="personalId" id="s_ee_itcollege_team13_domain_BorderGuard_personalId" object="${borderguard}" z="EM8Sg4dx+TbEsFXv/niTqEwDGtU="/>
         <field:display field="comment" id="s_ee_itcollege_team13_domain_BorderGuard_comment" object="${borderguard}" z="dp3nlZhRAGnC3BiaSZbUTo75BUM="/>
+        <div id="showInBed"><a href="${urlBase}/${borderguard.id}?form"><spring:message code="label_ee_itcollege_team13_domain_borderguardinbed" /></a></div>
     </page:show>
 </div>

@@ -7,7 +7,7 @@
    	<menu:category id="c_menu">  
   			<menu:item id="i_borderguard_new" url="/borderguards"/> 
      	 	<menu:item id="i_roomentity_new" url="/roomentitys"/>
-    	 	<menu:item id="i_housingreport_new" url="/housingreport/index" /> 
+    <!--   	<menu:item id="i_housingreport_new" url="/housingreport/index" /> -->	
     	</menu:category>
     	
     	<br />

@@ -40,9 +40,9 @@
             <menu:item id="i_roomentity_new" messageCode="global_menu_new" url="/roomentitys?form" z="XUC5FGQyRuY5BcYgJHme/KQrsio="/>
             <menu:item id="i_roomentity_list" messageCode="global_menu_list" url="/roomentitys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="U8+GyoNMIF6IjailUwhUAtengd0="/>
         </menu:category>
-        <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
+   <!--     <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
             <menu:item id="i_controller__housingreportindex_id" messageCode="global_generic" url="/housingreport/index" z="1lz5xy7qFmDzpcxNAZkx4n+UO+Y="/>
-        </menu:category>
+        </menu:category> -->  
         <menu:category id="c_adminunit" z="Ll9hGVeS1seuKw7O29eBEicWGTE=">
             <menu:item id="i_adminunit_new" messageCode="global_menu_new" url="/adminunits?form" z="3l2wLLDQ+AyukjG3RqZOeSi9MDw="/>
             <menu:item id="i_adminunit_list" messageCode="global_menu_list" url="/adminunits?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ukU+qNeEaYwXLG+6uCXRSUofrjc="/>

@@ -120,6 +120,7 @@ public class BorderGuardInBed extends BaseEntity implements Serializable {
 				"SELECT o FROM BorderGuardInBed o WHERE o.borderGuard = :BGid AND o.endDate > :today", BorderGuardInBed.class);
 			q.setParameter("BGid", bg);
 			q.setParameter("today", today);
+			q.setMaxResults(1);
 			BorderGuardInBed BGsIB = (BorderGuardInBed) q.getSingleResult();
 			
 			return BGsIB;

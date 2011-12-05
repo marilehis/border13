@@ -9,4 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/borderguardinbeds")
 @Controller
 public class BorderGuardInBedController {
+	
+    @RequestMapping(method = RequestMethod.PUT)
+    public String update(@Valid BorderGuardInBed borderGuardInBed, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+        if (bindingResult.hasErrors()) {
+            uiModel.addAttribute("borderGuardInBed", borderGuardInBed);
+            addDateTimeFormatPatterns(uiModel);
+            return "borderguardinbeds/update";
+        }
+        uiModel.asMap().clear();
+        borderGuardInBed.merge();
+        return "redirect:/borderguardinbeds/" + encodeUrlPathSegment(borderGuardInBed.getId().toString(), httpServletRequest);
+    }
+    
 }

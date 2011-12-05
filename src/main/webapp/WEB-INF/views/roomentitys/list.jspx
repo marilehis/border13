@@ -9,7 +9,7 @@
     <spring:url value="/roomentitys" var="urlBase" />
 	<spring:url value="resources/images" var="img"/>
 
-    <h1>Ruumiüksused</h1>
+    <h1><spring:message code="label_ee_itcollege_team13_domain_roomentity_plural" /></h1>
 
 	<c:if test="${roomentitys == null}">
 		Pole ühtegi lisatud
@@ -17,9 +17,15 @@
 	<c:if test="${roomentitys != null}">
 		<table>
 		<thead><tr>
-			<td width="10%">Kood</td>
-			<td>Nimi</td>
-			<td>Tüüp</td>
+			<td width="10%">
+				<spring:message code="label_ee_itcollege_team13_domain_roomentity_id" />
+			</td>
+			<td>
+				<spring:message code="label_ee_itcollege_team13_domain_roomentity_name" />
+			</td>
+			<td>
+				<spring:message code="label_ee_itcollege_team13_domain_roomentity_roomtype" />
+			</td>
 			<td width="40px"></td>
 		</tr>
 		</thead>

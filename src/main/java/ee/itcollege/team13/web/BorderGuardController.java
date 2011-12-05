@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class BorderGuardController {
     
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String show(@PathVariable("id") Long id, Model uiModel) {
+    @RequestMapping(value = "/{id}", params="beds", method = RequestMethod.GET)
+    public String putToBed(@PathVariable("id") Long id, Model uiModel) {
     	List<RoomEntity> pRoomEntity = RoomEntity.findParentRoomEntitys();
     	
     	Bed currentBed = BorderGuardInBed.getBGCurrentBed(id).getBed();
@@ -39,8 +39,8 @@ public class BorderGuardController {
 
     }
     
-    @RequestMapping(value = "/{id}", params = "rE{reID}", method = RequestMethod.GET)
-    public String show(@PathVariable("id") Long id, @PathVariable("reID") Long reID, Model uiModel) {
+    @RequestMapping(value = "/{id}", params = "rE", method = RequestMethod.GET)
+    public String putToBed(@PathVariable("id") Long id, @PathVariable("reID") Long reID, Model uiModel) {
     	List<RoomEntity> pRoomEntity = RoomEntity.findParentRoomEntitys();
     	
     	Bed currentBed = BorderGuardInBed.getBGCurrentBed(id).getBed();
@@ -57,6 +57,13 @@ public class BorderGuardController {
 		
         return "borderguards/show";
 
+    }
+    
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String show(@PathVariable("id") Long id, Model uiModel) {
+        uiModel.addAttribute("borderguard", BorderGuard.findBorderGuard(id));
+        uiModel.addAttribute("itemId", id);
+        return "borderguards/show";
     }
 	
 }

@@ -10,9 +10,11 @@
 	<spring:url value="resources/images" var="img"/>
 
     <h1><spring:message code="label_ee_itcollege_team13_domain_roomentity_plural"/></h1>
+	<spring:message code="label_ee_itcollege_team13_domain_roomentity"
+			                htmlEscape="false" var="msg_roomentity" />
 
 	<c:if test="${roomentitys == null}">
-		Pole ühtegi lisatud
+	<spring:message code="entity_not_found" arguments="${msg_roomentity}" />
 	</c:if>
 	<c:if test="${roomentitys != null}">
 		<table>
@@ -29,14 +31,14 @@
 			<td>${room.roomType.name}</td>
 			<td>
 				<a href="${urlBase}/edit?id=${room.id}"><img src="${img}/update.png" /></a>
-				<a href="${urlBase}/delete?id=${room.id}" onclick="return confirm('Are you sure?');"><img src="${img}/delete.png" /></a>
+				<spring:message code="entity_delete_confirm" var="msg_confirm"/>
+				
+				<a href="${urlBase}/delete?id=${room.id}" onclick="return confirm('${msg_confirm}');"><img src="${img}/delete.png" /></a>
 			</td>
 		</tr></c:forEach>
 		<thead>
 			<tr><td colspan="4"><a href="roomentitys/edit">
 			<img src="${img}/add.png" /><c:out value=" " />
-			<spring:message code="label_ee_itcollege_team13_domain_roomentity"
-			                htmlEscape="false" var="msg_roomentity" />
 			<spring:message code="entity_create" arguments="${msg_roomentity}" />
 			</a></td></tr>
 		</thead>

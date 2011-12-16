@@ -6,7 +6,6 @@ import org.springframework.format.support.FormattingConversionServiceFactoryBean
 import org.springframework.roo.addon.web.mvc.controller.RooConversionService;
 
 import ee.itcollege.team13.domain.RoomEntity;
-import ee.itcollege.team13.domain.RoomType;
 
 /**
  * A central place to register application converters and formatters. 

@@ -9,6 +9,7 @@
         <field:input field="comment" id="c_ee_itcollege_team13_domain_Bed_comment" z="WuWldeiR7Kl1cj1gp1sCUdK20Yk="/>
         <!-- <field:simple field="borderGuardsInBed" id="c_ee_itcollege_team13_domain_Bed_borderGuardsInBed" messageCode="entity_reference_not_managed" messageCodeAttribute="Border Guard In Bed" z="ZicM/r5UD1Y28rOd4KwDBoDcXvA="/> -->
         <field:select field="roomEntity" id="c_ee_itcollege_team13_domain_Bed_roomEntity" itemLabel="name" itemValue="id" items="${roomentitys}" path="/roomentitys" z="user-managed"/>
+        <field:simple field="borderGuardsInBed" id="c_ee_itcollege_team13_domain_Bed_borderGuardsInBed" messageCode="entity_reference_not_managed" messageCodeAttribute="Border Guard In Bed" z="ZicM/r5UD1Y28rOd4KwDBoDcXvA="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team13_domain_Bed" render="${not empty dependencies}" z="8zUNVct34aDLy7gn3wUf3x2uz1U="/>
 </div>

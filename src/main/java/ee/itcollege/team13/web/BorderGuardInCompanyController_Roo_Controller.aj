@@ -10,9 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.lang.Integer;
 import java.lang.Long;
 import java.lang.String;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.joda.time.format.DateTimeFormat;
@@ -28,33 +26,6 @@ import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
 privileged aspect BorderGuardInCompanyController_Roo_Controller {
-    
-    @RequestMapping(method = RequestMethod.POST)
-    public String BorderGuardInCompanyController.create(@Valid BorderGuardInCompany borderGuardInCompany, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("borderGuardInCompany", borderGuardInCompany);
-            addDateTimeFormatPatterns(uiModel);
-            return "borderguardincompanys/create";
-        }
-        uiModel.asMap().clear();
-        borderGuardInCompany.persist();
-        return "redirect:/borderguardincompanys/" + encodeUrlPathSegment(borderGuardInCompany.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String BorderGuardInCompanyController.createForm(Model uiModel) {
-        uiModel.addAttribute("borderGuardInCompany", new BorderGuardInCompany());
-        addDateTimeFormatPatterns(uiModel);
-        List dependencies = new ArrayList();
-        if (Company.countCompanys() == 0) {
-            dependencies.add(new String[]{"company", "companys"});
-        }
-        if (BorderGuard.countBorderGuards() == 0) {
-            dependencies.add(new String[]{"borderguard", "borderguards"});
-        }
-        uiModel.addAttribute("dependencies", dependencies);
-        return "borderguardincompanys/create";
-    }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String BorderGuardInCompanyController.show(@PathVariable("id") Long id, Model uiModel) {

@@ -6,6 +6,7 @@
         <field:input field="roomTypeId" id="c_ee_itcollege_team13_domain_RoomType_roomTypeId" required="true" z="BTcTEwXUYNKt/TadOyX/oO3oWBw="/>
         <field:input field="name" id="c_ee_itcollege_team13_domain_RoomType_name" required="true" z="BcVlVOGaRlZqQStlQ4eKNmUfYpU="/>
         <field:input field="comment" id="c_ee_itcollege_team13_domain_RoomType_comment" z="iLFfDE8MXAtvwnJMJlMKCfN/t8Y="/>
+        <field:simple field="roomEntitys" id="c_ee_itcollege_team13_domain_RoomType_roomEntitys" messageCode="entity_reference_not_managed" messageCodeAttribute="Room Entity" z="KWn48Pk9/ZOfmdNz4TDlDlrl3WY="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team13_domain_RoomType" render="${not empty dependencies}" z="L7vMvszLv4Ow7ndpnVU7mXqz9Xg="/>
 </div>

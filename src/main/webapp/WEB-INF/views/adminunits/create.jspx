@@ -5,7 +5,6 @@
     <form:create id="fc_ee_itcollege_team13_domain_AdminUnit" modelAttribute="adminUnit" path="/adminunits" render="${empty dependencies}" z="BKsjuWncH6OQh/UO8SFFCYTnxLk=">
         <field:input field="adminUnitId" id="c_ee_itcollege_team13_domain_AdminUnit_adminUnitId" required="true" z="TC/QfZkeKbwrrHhUM/yc+UPzoVE="/>
         <field:input field="adminUnitName" id="c_ee_itcollege_team13_domain_AdminUnit_adminUnitName" required="true" z="ripSF8WtRvOu9jPLZ1DheH8RycE="/>
-        <field:simple field="roomEntitys" id="c_ee_itcollege_team13_domain_AdminUnit_roomEntitys" messageCode="entity_reference_not_managed" messageCodeAttribute="Room Entity" z="bWGHw6OHx0o7886XgZKRkvAMZIg="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team13_domain_AdminUnit" render="${not empty dependencies}" z="TFTn7ZJJyTbxtfKPBeReoDzwMvI="/>
 </div>

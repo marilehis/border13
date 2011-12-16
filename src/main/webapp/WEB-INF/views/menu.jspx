@@ -37,7 +37,7 @@
             <menu:item id="i_roomtype_list" messageCode="global_menu_list" url="/roomtypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="I0scyAa1pmjxbJm6+JNKvoSDzw8="/>
         </menu:category>
         <menu:category id="c_roomentity" z="bdsrQjQ6mE9Cap5eCSViWXEztmU=">
-            <menu:item id="i_roomentity_new" messageCode="global_menu_new" url="/roomentitys?form" z="XUC5FGQyRuY5BcYgJHme/KQrsio="/>
+            <menu:item id="i_roomentity_new" messageCode="global_menu_new" url="/roomentitys/edit" z="XUC5FGQyRuY5BcYgJHme/KQrsio="/>
             <menu:item id="i_roomentity_list" messageCode="global_menu_list" url="/roomentitys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="U8+GyoNMIF6IjailUwhUAtengd0="/>
         </menu:category>
    <!--     <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">

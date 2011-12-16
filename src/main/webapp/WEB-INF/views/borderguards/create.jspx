@@ -9,8 +9,6 @@
         <field:input field="sex" id="c_ee_itcollege_team13_domain_BorderGuard_sex" max="1" required="true" z="XgjQ7yymvgehLO8iknm0pukQOos="/>
         <field:input field="personalId" id="c_ee_itcollege_team13_domain_BorderGuard_personalId" required="true" z="6rGe6B71cIL1IZwHSEBlWb2VdKY="/>
         <field:input field="comment" id="c_ee_itcollege_team13_domain_BorderGuard_comment" z="RddhsQ7ee0D90NDoGcBnfeZJMjU="/>
-        <field:simple field="borderGuardsInCompany" id="c_ee_itcollege_team13_domain_BorderGuard_borderGuardsInCompany" messageCode="entity_reference_not_managed" messageCodeAttribute="Border Guard In Company" z="Wy0mGduMIYKX9CKwtkzp/JziQQY="/>
-        <field:simple field="borderGuardsInBed" id="c_ee_itcollege_team13_domain_BorderGuard_borderGuardsInBed" messageCode="entity_reference_not_managed" messageCodeAttribute="Border Guard In Bed" z="praJz6OU17mGDAw1roUFhUMOvt4="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team13_domain_BorderGuard" render="${not empty dependencies}" z="zthnMUg83uWg8ne7NW9STWDRIEY="/>
 </div>

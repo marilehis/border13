@@ -5,7 +5,6 @@
     <form:create id="fc_ee_itcollege_team13_domain_Company" modelAttribute="company" path="/companys" render="${empty dependencies}" z="JWEiMTQ1dXhQbiYtiwTqJlt9bM0=">
         <field:input field="companyID" id="c_ee_itcollege_team13_domain_Company_companyID" required="true" z="q14cFOUcSRjH1lRc7pr7XFw0Tf0="/>
         <field:input field="name" id="c_ee_itcollege_team13_domain_Company_name" required="true" z="VznmS0opywRF3cL2Eds+BY9zxsU="/>
-        <field:simple field="borderGuardsInCompany" id="c_ee_itcollege_team13_domain_Company_borderGuardsInCompany" messageCode="entity_reference_not_managed" messageCodeAttribute="Border Guard In Company" z="8j66IZicgCkUwd3quzdWONscaOI="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team13_domain_Company" render="${not empty dependencies}" z="bIP82rTkfOXd8jNy3yuW6CXEGmk="/>
 </div>

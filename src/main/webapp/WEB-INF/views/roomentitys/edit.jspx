@@ -62,10 +62,12 @@
 						  <td colspan="2" align="right">					  
 							  <table width="100%">
 							  	<c:forEach items="${roomEntity.childRoomEntitys}" var="child">
+							  	   <c:if test="${child.isEntityDeleted() == true}">
 							  		<tr>
 							  			<td><a href="edit?id=${child.id}">${child.name}</a></td>
 							  			<td width="5%"><a href="delete?id=${child.id}"><img src="${img}/delete.png" /></a></td>
 							  		</tr>
+							  		</c:if>
 							  	</c:forEach>
 							  	<tr>
 							  		<td colspan="2" align="right"><a href="edit?parentId=${roomEntity.id}"><spring:message code="button_add" /></a></td>

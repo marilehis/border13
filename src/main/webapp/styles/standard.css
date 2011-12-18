@@ -119,8 +119,25 @@ input {
 	height:20px;
 }
 
-input, textarea, select {
+input, textarea, select, .likeButton {
 	border:1px solid #B3B3B3;
+}
+
+input[type="submit"]
+{
+	background-color: buttonface;
+}
+
+.likeButton
+{
+	background-color: buttonface;
+    color: #000000 !important;
+    display: inline-block;
+    font-size: 13px;
+    margin: 0 2px;
+    padding: 3px 9px 0;
+    text-decoration: none;
+    vertical-align: top;
 }
 
 input.image {

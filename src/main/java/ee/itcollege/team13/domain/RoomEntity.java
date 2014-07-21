@@ -209,5 +209,14 @@ public class RoomEntity extends BaseEntity implements Serializable {
 	public void setAdminUnit(AdminUnit param) {
 		this.adminUnit = param;
 	}
+	
+	public boolean isEntityDeleted(){
+		Date date = getDeleted();
+		if(date.compareTo(notDeleted) != 0){
+			return false;
+		}else{
+			return true;
+		}
+	}
 
 }
